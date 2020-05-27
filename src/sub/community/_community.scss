@@ -1,0 +1,201 @@
+@charset "utf-8";
+fieldset{border: 0;}
+table, th, td{border-collapse: collapse;}
+.hidden{position: absolute; top: -99999px; opacity: 0;}
+
+.community {
+    #sub_visual {
+        width: 100%; height: 360px; background-position: center; background-size: cover; position: relative;
+        background-color: #994e4e;
+        background-image: url(../img/sub/community/img/community.jfif);
+    }
+    
+    .inner {
+        
+
+        >.inner_header{
+            width: 100%; text-align: center; margin: 50px 0 50px;
+        
+                >h1{
+                    font: normal 30px/1 'Comfortaa', 'arial'; color: #777; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;}
+
+                >p{font: normal 14px/1 'Comfortaa', 'arial'; color: #444; letter-spacing: 1px; text-transform: uppercase; }
+
+        }
+
+        >.searchBox{ 
+            width: 100%; padding: 50px 0;
+
+            &::after{
+                content: ''; display: block; clear: both;
+            }
+
+            >form{
+                float: right; padding: 20px;
+
+                input[type=text]{
+                    font: 18px/1 '맑은 고딕'; color: #555; height: 40px; width: 392px; background: rgba(0,0,0,0.01); padding: 0 20px; box-sizing: border-box; border-style: none; border: 1px solid #999;
+                }
+
+                input[type=submit]{
+                    font: bold 16px/40px '맑은 고딕'; background: #444; color: #fff; border: none; padding: 0 20px; text-align: center; cursor: pointer;
+                }
+            }
+        }
+
+        >table{ 
+            width: 100%;
+
+            tr{ 
+                width: 100%; transition: 0.5s;
+
+                &:hover{
+                    background-color:rgba(192, 38, 38, 0.3);transition: 0.5s;
+                }
+                &:first-child{
+                    border-top: 2px solid #555;
+                }
+                &:last-child{
+                    border-bottom: 0.5px solid #555;
+                }
+                &.on{
+                    display: block;
+                }
+                &.answer{display: none;background: rgba(0,0,0,0.03);}
+
+                td{
+                     font: 14px/1.3 'Comfortaa' ,'arial'; color: #666; text-align: center; padding: 20px;box-sizing: border-box; height: 71px; 
+
+                     > a{
+                         display: block;
+                    
+                    }
+                     
+                     &:nth-of-type(1){ width: 5%;}
+                     &:nth-of-type(2){ width: 15%;}
+                     &:nth-of-type(3){
+                         text-align: left; 
+                         width: 50%;
+                             a{
+                                display: block;
+
+                                
+                        
+                            }
+
+                            i{
+                                margin-right: 20px; background-color:rgb(192, 38, 38) ; font-size: 16px; 
+                                color: rgba(255,255,255,0.8); border-radius: 50%; 
+                                width: 30px; height: 30px; line-height: 30px; 
+                                text-align: center; display:inline-block;
+                            }
+                    }
+                     &:nth-of-type(4){ width: 20%;}
+                     &:nth-of-type(5){ 
+                         width: 10%;
+
+                         > a{
+                             display: block;
+
+                             > i{font-size: 18px;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        >.pagination{
+            width: 100%;text-align: center; margin-top: 100px;
+
+            >.wrap{ 
+                width: 1180px;
+
+                >.left{
+                    float: left; width: 100px; height: 30px; background-color:rgb(192, 38, 38) ; font: 12px/30px 'Comfortaa','arial'; color: #fff;
+
+                    i{
+                        line-height: 30px;
+                    }
+                }
+                >.right{
+                    float: right; width: 100px; height: 30px; background-color:rgb(192, 38, 38); font: 12px/30px 'Comfortaa','arial'; color: #fff;
+
+                    i{
+                        line-height: 30px;
+                    }
+                }
+            }
+
+            >.numbers>a{
+                display: inline-block; width: 30px; height:30px; font: 12px/30px 'Comfortaa','arial'; border: 1px solid #999; color: #888; transition: 0.5s;
+
+                &:hover{
+                    cursor: pointer; border-bottom: 5px solid rgb(192, 38, 38);
+                }
+                &.on{
+                    border-bottom: 5px solid rgb(192, 38, 38);
+                }
+            }
+        }
+    }
+}
+
+//tablet
+@media screen and (max-width:$tablet){
+    .community{
+        .inner{
+            .searchBox{
+                padding: 50px 0;
+            }
+            >.pagination{
+                >.wrap{ 
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
+}
+//cellphone
+@media screen and (max-width:$cellphone){
+    .community{
+        .inner{
+            >.searchBox{
+                form{
+                    float: none; padding: 20px;
+                }
+
+                input[type=text]{
+                    width: 100%; text-align: center; margin-bottom: 10px;
+                }
+
+                input[type=submit]{
+                    width: 100%;
+                }
+            }
+
+            >table{ 
+                width: 100%;
+                tr{
+                    td{
+                        &:nth-of-type(1){display: none;}
+                        &:nth-of-type(4){display: none;}
+                    }
+                }
+            }
+            >.pagination{
+                width: 100%;
+
+                >.wrap{ 
+                    width: 100%;
+
+                    >.left{ width: 30px; }
+                    >.right{width: 30px; }
+                    
+                }
+            }
+        }
+    }
+}

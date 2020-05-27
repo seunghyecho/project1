@@ -1,0 +1,128 @@
+@charset "utf-8";
+.location{
+    #sub_visual {
+        width: 100%; height: 360px; background-position: center; background-size: cover; position: relative;
+        background-color: #4b7032;
+        background-image: url(../img/sub/location/img/location.jfif);
+    }
+
+    .inner{
+        >.inner_header{
+            width: 100%; text-align: center;  margin: 50px 0 50px;
+
+            >h1{
+                font: normal 30px/1 'Comfortaa', 'arial'; color: #777; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+            }
+            >p{
+                font: normal 14px/1 'Comfortaa', 'arial'; color: #444; letter-spacing: 1px; text-transform: uppercase; 
+            }
+        }
+
+        >#map{
+            width: 100%; border: 1px solid #aaa; height: 500px; margin-top: 100px; margin-bottom: 50px;
+        }
+
+        
+            #traffic {
+                margin-top:20px; float:left;
+
+                >li {
+                    width:200px; height:40px; background:#555;
+                    font:bold 12px/40px 'arial'; color:#fff; text-align:center;
+                    float:left; margin-right:10px; cursor:pointer;
+                }
+            }
+
+        
+            #branch {
+                margin-top:20px; float:right; 
+
+                >li {
+                    width:200px; height:40px; background:#555;
+                    font:bold 12px/40px 'arial'; color:#fff; text-align:center;
+                    float:left; margin-left:10px; cursor:pointer;
+                }   
+            }
+            
+
+        >article{
+
+            &:nth-of-type(1){
+                margin-top: 200px;
+                
+                .wrap{
+                    >.icon{background: navy;}
+                }
+            }
+            &:nth-of-type(2){
+                >.wrap{
+                    >.icon{background: darkslategrey;}
+                }
+            }
+            &:nth-of-type(3){
+                >.wrap{
+                    >.icon{background: purple ;}
+                }
+            }
+
+            >.wrap{
+                transition: 0.5s; margin-top: 0px !important;     
+            
+                &::after{
+                    content: ''; display: block; clear: both;
+                }
+
+                >div{
+                    float: left; margin: 30px;transition: 0.5s;
+
+                    &.icon{
+                        width: 100px; height: 100px;  text-align: center; border-radius: 50%;
+    
+                        >i{font-size: 40px ; color: #fff; line-height: 100px; }
+                    }
+    
+                    &.text{
+                        width: 80%; transition: 0.5s;
+    
+                        >h2{
+                            font: bold 20px/1 '맑은 고딕'; padding-bottom: 15px; border-bottom: 1px solid #eee;
+                        }
+    
+                        >p{
+                            font: 12px/1 '맑은 고딕'; color:#666; padding-top: 15px;
+    
+                            >span{
+                                font:bold 14px/1 '맑은 고딕'; color:#444; padding-right: 10px;
+    
+                                &::after{
+                                    content: '|'; display: inline-block; padding-left: 10px; font-size: 14px; color: rgba(0,0,0,0.1);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width:$tablet){
+
+    .location{
+        .inner{
+            .inner_header{
+                article{
+                    .wrap{
+                        >.text{width: 70%;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:$cellphone){
+    
+}

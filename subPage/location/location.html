@@ -1,0 +1,223 @@
+<!--  script 파일 sub/header로-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sub</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <script src="../../js/jquery-1.8.3.min.js"></script>
+    <script src="../../js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=76412daadfadef93a226881b54f2c22c"></script>
+    <script src="https://kit.fontawesome.com/cc918a0d21.js" crossorigin="anonymous"></script>
+    <!-- <script src="../../js/custom.min.js"></script> -->   
+    <script src="../../js/sub/youtube/youtube.js"></script>
+    <script src="../../js/sub/flickr/flickr.js"></script> 
+    <script src="../../js/sub/location/location.js"></script> 
+    <script src="../../js/sub/gallery/gallery.js"></script> 
+    <script>
+        $(document).ready(function(){
+
+        $('.inner> .logo').addClass('show');
+        $('.gnb li').addClass('show');    
+        // MENU BUTTON
+        $(".menuBtn").on("click", function () {
+            if ($(this).find("i").hasClass("fa-bars")) {
+                $(".menuBtn>i").attr("class", "fas fa-times");
+                $("#gnb_mo").addClass("on");
+            } else {
+                $(".menuBtn>i").attr("class", "fas fa-bars");
+                $("#gnb_mo").removeClass("on");
+            }
+        });
+    })
+    </script>
+   
+</head>
+<body>
+    <header id="header" class="myScroll">
+        <div class="inner">
+            <h1>yourlogo</h1>
+            <a href="/@Company/index.html" class="logo">Your<span>logo</span></a>
+            
+            <ul class="gnb">
+                <li>
+                    <a href="/@Company/subPage/department/department.html">department</a>
+                    <ul class="gnbSub">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/@Company/subPage/community/community.html">community</a>
+                    <ul class="gnbSub">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/@Company/subPage/member/member.html">members</a>
+                    <ul class="gnbSub">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/@Company/subPage/gallery/gallery.html">gallery</a>
+                    <ul class="gnbSub">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/@Company/subPage/location/location.html">location</a>
+                    <ul class="gnbSub">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/@Company/subPage/youtube/youtube.html">youtube</a>
+                    <ul class="gnbSub">
+                        <li><a href="#">lorem ipsum</a></li>
+                        <li><a href="#">lorem ipsum</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/@Company/subPage/flickr/flickr.html"><i class="fab fa-flickr"></i> flickr</a>
+                    <ul class="gnbSub">
+                        <li><a href="#">lorem ipsum</a></li>
+                        <li><a href="#">lorem ipsum</a></li>
+                    </ul>       
+                </li>
+            </ul>
+            <ul class="utill">
+                <li><a href="#"><i class="fas fa-search"></i></a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+            <!-- 웹메뉴버튼 -->
+            <a href="#" class="menuBtn"><i class="fas fa-bars"></i></a>
+        </div>       
+    </header>
+      <!-- 모바일메뉴 -->
+      <section id="gnb_mo">
+        <ul>
+            <li><a style="font-size: bold; color: rgb(255, 44, 44);" href="/@Company/index.html">home</a></li>
+            <li><a href="/@Company/subPage/department/department.html">department</a></li>
+            <li><a href="/@Company/subPage/community/community.html">community</a></li>
+            <li><a href="/@Company/subPage/member/member.html">members</a></li>
+            <li><a href="/@Company/subPage/gallery/gallery.html">gallery</a></li>
+            <li><a href="/@Company/subPage/location/location.html">location</a></li>
+            <li><a href="/@Company/subPage/youtube/youtube.html">youtube</a></li>
+            <li><a href="/@Company/subPage/flickr/flickr.html"><i class="fab fa-flickr"></i>flickr</a></li>
+        </ul>
+    </section>
+
+<!-- <figure id="sub_visual" class="sub_visual"></figure> -->
+
+<section id="content" class="content location">
+    <figure id="sub_visual" class="sub_visual"></figure>
+    <div class="inner">
+        <div class="inner_header">
+            <h1>location</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div id="map"></div>
+        <ul id="traffic">
+            <li id="t_on">교통정보량 보기</li>
+            <li id="t_off">교통정보량 숨기기</li>
+        </ul>
+        <ul id="branch">
+            <li id="branch1">본점</li>
+            <li id="branch2">지점</li>
+            <li id="branch3">지점2</li>
+        </ul>
+            <!-- 주소 -->
+            <article class="address">
+                <div class="wrap">
+                    <div class="icon">
+                        <i class="far fa-address-book"></i>
+                    </div>
+                    <div class="text">
+                        <h2>주소 및 연락처</h2>
+                        <p><span>주소</span>서울시 마포구 월드컵북로</p>
+                        <p><span>팩스</span>02-2222-3729</p>
+                    </div>
+                </div>
+            </article>
+            <!-- 주소끝 -->
+            <!-- 버스 -->
+            <article class="bus">
+                <div class="wrap">
+                    <div class="icon">
+                        <i class="fas fa-bus-alt"></i>
+                    </div>
+                    <div class="text">
+                        <h2>버스 이용 시</h2>
+                        <p><span>간선버스</span>171, 271, 470, 673 </p>
+                        <p><span>광역버스</span>9711A </p>
+                    </div>
+                </div>
+            </article>
+            <!-- 버스끝 -->
+            <!-- 지하철 -->
+            <article class="subway">
+                <div class="wrap">
+                    <div class="icon">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <div class="text">
+                        <h2>지하철 이용 시</h2>
+                        <p>6호선 디지털미디어시티역 2번 출구</p>
+                        <p>(6715, 7711, 7730)</p>
+                    </div>
+                </div>
+            </article>
+            <!-- 버스끝 -->
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="inner">
+        <div class="wrap">
+            <div>
+                <h1>
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Debitis, maxime.
+                </h1>
+            </div>
+            <div>
+                <address>
+                    Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    <i class="fas fa-location-arrow"></i>
+                    <span>tmdgp523@naver.com</span>
+                </address>
+            </div>
+            <div>
+                <p>Follow SEUNGHYE</p>
+                <div class="icons">
+                    <i class="fas fa-heading"></i>
+                    <i class="fas fa-font"></i>
+                    <i class="fas fa-bold"></i>
+                </div>
+            </div>
+        </div>
+        <p>
+            Copyright &copy; 2020 SEUNGHYE All Right reserved.
+        </p>
+    </div>
+</footer>

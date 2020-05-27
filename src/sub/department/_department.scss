@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+.department {
+    #sub_visual {
+        width: 100%; height: 360px; background-position: center; background-size: cover; position: relative;
+        background-color: #4f3270;
+        background-image: url(../img/sub/department/img/department.jpg);
+    }
+    .inner {
+
+        >.inner_header{
+            width: 100%; text-align: center;  margin: 50px 0 50px;
+
+            >h1{
+                font: normal 30px/1 'Comfortaa', 'arial'; color: #777; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+            }
+            >p{
+                font: normal 14px/1 'Comfortaa', 'arial'; color: #444; letter-spacing: 1px; text-transform: uppercase; 
+            }
+        }
+
+        >.division{
+            width: 1180px; margin: 0 auto;
+
+            ul{
+                position: 0.5s;
+
+                li{
+                    span {
+                        display:block; width:100px; height:100px;  background:#000; border-radius:50px; font:bold 18px/100px '맑은 고딕'; color:#fff; text-align:center;  margin: 50px auto; 
+
+                        &::after {
+                            content: ''; display: block; width: 944px; height: 2px; background: rgba(0,0,0,0.09); transform: translate(-423px,20px); 
+                        }
+                    }
+
+                    ul{
+                        &::after{
+                            content: ''; display: block; clear: both;
+
+                           
+                        }
+                        li{
+                            width: 18%; float: left; margin-right: 2%; box-sizing: border-box; transition: 0.5s;
+
+                            &:first-child{ margin-left: 1%; }
+                            &:last-child{ margin-right: 0%; }
+                            &:nth-of-type(3){
+                                span{
+                                    &::after{
+                                        height: 75px; position: absolute; top: 310px; z-index: -1;
+                                    }
+                                }
+                            }
+
+                            span {
+                                float: left; width:100%; height:50px;  background: rgba(0,0,0,0.09); border-radius:25px; font:bold 16px/50px '맑은 고딕'; color:#444; text-align:center;   margin: 20px 0; transition: 1s;
+
+                                &::after{
+                                    content: ''; display: block; width: 2px; height: 50px; background: rgba(0,0,0,0.09); transform: translate(106px,-100px); 
+                                }
+                            }
+
+                            ul{
+                                li{
+                                    float: none; width: 100%; 
+
+                                    span { 
+                                        height:50px;  background:none; border-radius:25px; font:14px/50px '맑은 고딕'; color:#888; border: 1px solid #888; margin: 5px 0;   
+
+                                        &::after{ display: none; }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//tablet
+@media screen and (max-width:$tablet){
+    .department{
+        .inner{
+
+        
+            .division{
+                width: 100%; 
+                padding: 0 20px; 
+                box-sizing: border-box;
+                ul{
+                    li{
+                        span{
+                            &::after {
+                                display: none; 
+                            }
+                        }
+                        ul{
+                            li{
+                                width: calc(90% / 3); 
+
+                                span{
+                                    &::after{ display: none; }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//cellphone
+@media screen and (max-width:$cellphone){
+    .department{
+        .inner{
+
+        
+            .division{
+            ul{
+                li{
+                    ul{
+                        li{
+                            width: 100%; float: none;
+                        
+                            &:first-child{ 
+                                margin-left: 0%; 
+                            }
+        
+                            &:last-child{ 
+                                margin-right: 0%; 
+                            }
+        
+                            span {float: none;}
+
+                            ul{
+                                li{
+                                    float: none; width: 100%; 
+                                }  
+                            }
+                        }
+                    }
+                    
+
+                    
+                }
+            }
+            }
+        }
+    }
+}

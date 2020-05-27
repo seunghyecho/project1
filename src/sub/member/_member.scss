@@ -1,0 +1,185 @@
+@charset "utf-8";
+fieldset{border: 0;}
+table, th, td{border-collapse: collapse;}
+input, select, textarea, form, img, label {vertical-align: middle; box-sizing: border-box;}
+.hidden{position: absolute; top: -99999px; opacity: 0;}
+
+.member {
+    #sub_visual {
+        width: 100%; height: 360px; background-position: center; background-size: cover; position: relative;
+        background-color: #70325d;
+        background-image: url(../img/sub/member/img/members.jfif);
+    }
+    .inner {
+
+        >.inner_header{
+            width: 100%; text-align: center;  margin: 50px 0 50px;
+
+            >h1{
+                font: normal 30px/1 'Comfortaa', 'arial'; color: #777; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+            }
+
+            >p{
+                font: normal 14px/1 'Comfortaa', 'arial'; color: #444; letter-spacing: 1px; text-transform: uppercase; 
+            }
+        }
+
+        
+            
+                    .agreement{
+                        width: 100%;
+
+                        textarea{
+                            width: 100%; height: 120px; padding: 10px 30px; box-sizing: border-box; background: rgba(0,0,0,0.05); margin-bottom: 10px; color: #777;font: normal 12px/1.5 'Comfortaa', 'arial';
+                        }
+
+                        input[type=checkbox]{ width: 13px; }
+                        label{font: 12px/1 'Comfortaa','arial'; color: #777;}
+                    
+                    }
+
+                    table{
+                        width: 100%; 
+                        
+                        caption{
+                            font: bold 18px/1 'Comfortaa','arial'; color: #444; text-align: left; padding: 50px 0 20px; border-bottom: 2px solid #888; margin-bottom: 20px;
+                        }
+                        tr{
+                            th{display: none;}
+                            td{
+                                input{ 
+                                    width: 48%; padding: 10px 5px; border: 1px solid #888; margin: 5px; font: normal 14px/1 '맑은 고딕','Comfortaa','arial'; transition: 0.5s; background: rgba(233, 233, 233, 0.35);  color: #555;
+
+                                    &::-webkit-input-placeholder{
+                                        padding-left: 10px; color: #bbb;
+                                    }
+
+                                    &:hover{
+                                        background: rgba(216, 216, 216, 0.35);  color: #444; border-color: rgba(0,0,0,0.05); box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
+                                    }
+                                }
+
+                                select{
+                                    width: 10%; padding: 10px 5px; font: normal 14px/1 'Comfortaa', 'arial';
+
+                                    &:hover{
+                                        background: #eee; border-color: rgba(0,0,0,0.05); box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
+                                    }
+                                }
+
+                                p{ 
+                                    font: 11px/1.5 'arial'; text-indent: 5px; color: #888; margin-bottom: 10px;
+                                }
+                            }
+                        }
+
+                        &.site {
+                            tr{
+                                &:nth-of-type(2){
+                                    &::after{
+                                        content:''; display: block; clear: both;
+                                    }
+
+                                    input{
+                                        float: left; width: 48%;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.personal{
+
+                            tr{
+                                &:last-child td{
+                                    padding: 80px 0; text-align: center;
+                                }
+
+                                &:nth-of-type(6){
+                                    &::after{
+                                        content: ''; display: block; clear: both;  
+                                    }
+
+                                    input{float: left;}
+                                }
+                            }
+                            &:nth-of-type(2){
+                                #zipcode{width: 10%;}
+                            } 
+
+                            input[type=submit]{
+                                width: 10%; font: normal 13px/1.5 '맑은 고딕','Comfortaa', 'arial'; border: none;  background: #aaa; color: #fff;
+
+                                &:hover{
+                                    background: #111; color: #fff; box-shadow: 5px 5px rgba(0,0,0,0.03); transition: 0.5s;
+                                }
+                            }
+
+                            input[type=reset]{
+                                width: 10%; font: normal 13px/1.5 '맑은 고딕','Comfortaa', 'arial'; border: none;  background: #eee; color: #111;
+
+                                &:hover{
+                                    background: #111; color: #fff; box-shadow: 5px 5px rgba(0,0,0,0.03); transition: 0.5s;
+                                }
+                            }
+                        }
+                        
+                    }
+                
+            
+        }
+    }
+
+
+//tablet
+@media screen and (max-width:$tablet){
+    
+}
+//cellphone
+@media screen and (max-width:$cellphone){
+    .member {
+        .inner{
+            form{
+                fieldset{
+                    table{
+                        input{
+                            width: 100%;
+                        }
+                        select{
+                            width: 25%; padding: 10px 5px;
+                        }  
+
+                        &.site{
+                            tr{
+                                &:nth-of-type(2){
+                                    input{float:none; width: 100%;}
+                                }
+                            }
+                        }
+
+                        &.personal{
+                            &:nth-of-type(2){
+                                #zipcode{width: 25%;}
+    
+                                input[type=submit]{width: 25%;}
+                                input[type=reset]{width: 25%;}
+                            }
+
+                            tr{
+                                &:last-child {
+                                    td{
+                                        padding: 80px 0; text-align: center;
+                                    }
+
+                                    input[type=reset]{border: none;}
+                                    input[type=submit]{border: none; background: #aaa; color: #fff;}
+                                }
+                            }
+                        } 
+
+                    }
+                }
+            }
+        }
+       
+    }
+}

@@ -1,0 +1,224 @@
+#visual {
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0px;
+
+    >.inner {
+        width: 100%;
+        height: 100%;
+
+        > li {
+            width: 100%;
+            height: 100%;
+            padding: 450px 0px;
+            box-sizing: border-box;
+            opacity: 0;
+            z-index: -1;
+            position: absolute;
+
+            &.on {
+                opacity: 1;
+                z-index: 2;
+            }
+
+            &.box {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+
+                a >  i {
+                    font-size: 20px;
+                    color: #fff;
+                }
+
+                > .wrap {
+                    width: 1080px;
+                    margin: 0 auto;
+
+                    > .left {
+                        float: left;
+                        width: 600px;
+
+                        > h1 {
+                            font: 45px/1 "Galada", "arial";
+                            color: #fff;
+                            margin-bottom: 20px;
+                            transition: 0.5s;
+                        }
+
+                        > p {
+                            font: 20px/1 "Comfortaa", "arial";
+                            color: rgb(255, 246, 246);
+                            transition: 0.5s;
+                        }
+                    }
+
+                    > .right {
+                        float: right;
+                        width: 180px;
+                        margin-top: 50px;
+
+                        > h1 {
+                            font: 20px/1 "arial";
+                            color: #fff;
+                            transition: 0.5s;
+                        }
+
+                        > p {
+                            font: bold 20px/1 "arial";
+                            color: rgb(199, 34, 34);
+                            transition: 0.5s;
+                        }
+
+                        > a {
+                            display: inline-block;
+                            width: 150px;
+                            height: 50px;
+                            text-align: center;
+                            line-height: 50px;
+                            float: right;
+                            margin-top: -50px;
+                            border-bottom: 2px solid rgb(199, 34, 34);
+                            transition: 1s;
+
+                            &:hover{
+                                
+                            }
+                        }
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: -10px;
+                    width: 60%;
+                    height: 100%;
+                    transform: skewX(30deg);
+                    background-color: rgba(255, 43, 43, 0.15);
+                    z-index: -1;
+                }
+            }
+            
+        }
+
+        >#box1 {
+            background-image: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif);
+            // background-image: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif);
+            background-color: rgb(131, 7, 7);
+
+            a {
+                /* background-color: rgba(255, 166, 0, 0.335); */
+                background-image: url(../img/main/visual/img/visual2.jpg);
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+        >#box2 {
+            background-image: url(../img/main/visual/img/visual2.jpg);
+            background-color: magenta;
+
+            a {
+                /* background-color: rgba(255, 0, 255, 0.335); */
+                background-image: url(../img/main/visual/img/visual3.jpg);
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
+        >#box3 {
+            background-image: url(../img/main/visual/img/visual3.jpg);
+            background-color: blueviolet;
+
+            a {
+                /* background-color: rgba(137, 43, 226, 0.335); */
+                background-image: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif);
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+}
+
+//tablet
+@media screen and (max-width:$tablet){
+    #visual {
+        width: 100%;
+        height: 600px;
+
+        >.inner {
+            
+            > li {
+                width: 100%;
+                height: 100%;
+                padding: 250px 60px;
+    
+                &.box{
+                    width: 100%;
+                    
+                    >.wrap {
+                        width: 100%;
+                        margin: 0 auto;
+        
+                        >.left {
+                            width: 450px;
+        
+                            >h1 {
+                                font: 35px/1 "Galada", "arial";
+                            }
+        
+                            >p {
+                                font: bold 15px/1 "Comfortaa", "arial";
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+//cellphone
+@media screen and (max-width:$cellphone){
+    #visual {    
+        width: 100%;
+        height: 600px;
+
+        >.inner {
+            > li {
+                width: 100%;
+                height: 100%;
+                padding: 250px 20px;
+                
+                >.wrap {
+                    width: 100%;
+                    margin: 0 auto;
+    
+                    >.left {
+                        width: 400px;
+    
+                        >h1 {
+                            font: 25px/1 "Galada", "arial";
+                        }
+    
+                        >p {
+                            font: bold 15px/1 "Comfortaa", "arial";
+                        }
+                    }
+    
+                    >.right {
+                        width: 180px;
+                    }
+                }
+            }
+        }
+    }
+}
