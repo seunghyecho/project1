@@ -21,7 +21,7 @@ $(function(){
             }
         })
         .success(function(data){
-            console.log(data.items);
+            console.log(data);
 
             
             

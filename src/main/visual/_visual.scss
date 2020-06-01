@@ -8,91 +8,155 @@
     position: relative;
     margin-top: 0px;
 
+    ul.imgBtn{
+        position: relative;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+
+        >li{
+            width: 150px;
+            height:150px;
+            border-radius: 50%;
+            position: absolute;
+            top: -268px;
+            transform: translate(-50%,-50%);
+            margin-left: -100px;
+            cursor: pointer;
+            transform: scale(1);
+            transition: 0.5s;
+            box-shadow: 0px 12px 20px 3px rgba(155, 34, 34, .5);
+          
+
+            &:hover{
+                transform: scale(1.2);
+                z-index: 3;
+            }
+
+            &:nth-of-type(1){
+                left: 12%;
+                background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+            }
+            &:nth-of-type(2){
+                left: 21%;
+                background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+            }
+            &:nth-of-type(3){
+                left: 30%;
+                background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+            }
+
+            >a{
+                display: block;
+                font: 20px/150px "Galada", "arial";
+                text-align: center;
+                color: #fff;
+                text-transform: uppercase;
+            }
+
+        }
+    }
+
+
+
     >.inner {
         width: 100%;
         height: 100%;
 
-        > li {
-            width: 100%;
-            height: 100%;
-            padding: 450px 0px;
-            box-sizing: border-box;
-            opacity: 0;
-            z-index: -1;
-            position: absolute;
+        >#box1 {
+            background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
 
-            &.on {
-                opacity: 1;
-                z-index: 2;
+            a {
+                background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
             }
+        }
+
+        >#box2 {
+            background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+
+            a {
+                background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+            }
+        }
+
+        >#box3 {
+            background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+            background-color: blueviolet;
+
+            a {
+                background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+            }
+        }
+
+
+        > li{
 
             &.box {
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-
-                a >  i {
-                    font-size: 20px;
-                    color: #fff;
-                }
-
+                width: 100%;
+                height: 100%;
+                padding: 450px 0px;
+                box-sizing: border-box;
+                // opacity: 0;
+                z-index: 1;
+                position: absolute;
+                transition:clip-path 2s;
+    
                 > .wrap {
-                    width: 1080px;
+                    width: 100%;
                     margin: 0 auto;
-
+                    padding: 0 100px;
+    
                     > .left {
                         float: left;
-                        width: 600px;
-
+                        position: relative;
+                        z-index: 1;
+                        width: 50%;
+    
                         > h1 {
-                            font: 45px/1 "Galada", "arial";
+                            font: 60px/1 "Galada", "arial";
                             color: #fff;
                             margin-bottom: 20px;
                             transition: 0.5s;
                         }
-
+    
                         > p {
                             font: 20px/1 "Comfortaa", "arial";
                             color: rgb(255, 246, 246);
                             transition: 0.5s;
                         }
                     }
-
+    
                     > .right {
-                        float: right;
-                        width: 180px;
-                        margin-top: 50px;
-
+                        width: 100%;
+                        position: absolute;
+    
                         > h1 {
                             font: 20px/1 "arial";
                             color: #fff;
                             transition: 0.5s;
                         }
-
+    
                         > p {
                             font: bold 20px/1 "arial";
                             color: rgb(199, 34, 34);
                             transition: 0.5s;
                         }
-
+    
                         > a {
-                            display: inline-block;
-                            width: 150px;
-                            height: 50px;
-                            text-align: center;
-                            line-height: 50px;
-                            float: right;
-                            margin-top: -50px;
-                            border-bottom: 2px solid rgb(199, 34, 34);
+                            width: 1200px;
+                            height: 600px;
+                            display: block;
+                            position: absolute;
+                            top: 0%;
+                            right: 0%;
                             transition: 1s;
-
-                            &:hover{
-                                
-                            }
+                            margin-top: -300px;
+                            margin-right: 200px;
+    
                         }
                     }
                 }
-
+    
                 &::after {
                     content: "";
                     display: block;
@@ -101,85 +165,150 @@
                     left: -10px;
                     width: 60%;
                     height: 100%;
-                    transform: skewX(30deg);
-                    background-color: rgba(255, 43, 43, 0.15);
+                    // transform: skewX(-30deg);
+                    background-color: rgba(192, 35, 35, 0.4);
                     z-index: -1;
                 }
+    
+                &:nth-of-type(1){
+                    clip-path:circle(0% at 12% 80%);  
+                    background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+    
+                }
+                &:nth-of-type(2){
+                    clip-path:circle(0% at 21% 80%);  
+                    background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+    
+                }
+                &:nth-of-type(3){
+                    clip-path:circle(0% at 30% 80%);  
+                    background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+    
+                }         
+                
             }
-            
+
+            &.upper{
+
+                z-index: 3;
+    
+                &:nth-of-type(1){
+                    clip-path:circle(130% at 12% 80%);  
+                    background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+    
+                }
+    
+                &:nth-of-type(2){
+                    clip-path:circle(130% at 21% 80%);  
+                    background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+    
+                }
+                &:nth-of-type(3){
+                    clip-path:circle(130% at 30% 80%);  
+                    background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+    
+                }
+            }
+
+            &.lower{
+
+                z-index: 2;
+    
+                &:nth-of-type(1){
+                    clip-path:circle(130% at 12% 80%);  
+                    background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+    
+                }
+    
+                &:nth-of-type(2){
+                    clip-path:circle(130% at 21% 80%);  
+                    background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+    
+                }
+                &:nth-of-type(3){
+                    clip-path:circle(130% at 30% 80%);  
+                    background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+    
+                }
+            }
         }
 
-        >#box1 {
-            background-image: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif);
-            // background-image: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif);
-            background-color: rgb(131, 7, 7);
+        
 
-            a {
-                /* background-color: rgba(255, 166, 0, 0.335); */
-                background-image: url(../img/main/visual/img/visual2.jpg);
-                background-size: cover;
-                background-position: center;
-            }
-        }
+        
 
-        >#box2 {
-            background-image: url(../img/main/visual/img/visual2.jpg);
-            background-color: magenta;
-
-            a {
-                /* background-color: rgba(255, 0, 255, 0.335); */
-                background-image: url(../img/main/visual/img/visual3.jpg);
-                background-size: cover;
-                background-position: center;
-            }
-        }
-
-        >#box3 {
-            background-image: url(../img/main/visual/img/visual3.jpg);
-            background-color: blueviolet;
-
-            a {
-                /* background-color: rgba(137, 43, 226, 0.335); */
-                background-image: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif);
-                background-size: cover;
-                background-position: center;
-            }
-        }
+       
     }
 }
+
 
 //tablet
 @media screen and (max-width:$tablet){
     #visual {
         width: 100%;
         height: 600px;
+        
+        ul.imgBtn{
+            >li{
+                margin-left: 0px;
+            }
+        }
 
         >.inner {
+            width: 100%;
+            height: 100%;
+
+            >#box1{
+                a{
+                    display: none;
+                }
+            }
+            >#box2{
+                a{
+                    display: none;
+                }
+            }
+            >#box3{
+                a{
+                    display: none;
+                }
+            }
             
             > li {
                 width: 100%;
                 height: 100%;
                 padding: 250px 60px;
+                
     
                 &.box{
                     width: 100%;
+                    padding: 100px 0;
                     
                     >.wrap {
                         width: 100%;
                         margin: 0 auto;
+                        padding: 0 20px;
         
                         >.left {
-                            width: 450px;
+                            float: none;
+                            width: 70%;
+                            text-align: left;
         
                             >h1 {
-                                font: 35px/1 "Galada", "arial";
+                                font: 60px/1 "Galada", "arial";
                             }
         
                             >p {
                                 font: bold 15px/1 "Comfortaa", "arial";
                             }
                         }
+                        >.right{
+                            width: 100%;
+                        }
                         
+                    }
+                    &::after {
+                        display: none;
                     }
                 }
             }
@@ -192,32 +321,43 @@
         width: 100%;
         height: 600px;
 
+        ul.imgBtn{
+            >li{
+                margin-left: 0px;
+            }
+        }
+
         >.inner {
             > li {
                 width: 100%;
                 height: 100%;
-                padding: 250px 20px;
-                
-                >.wrap {
+                // padding: 250px 20px;
+                &.box{
                     width: 100%;
-                    margin: 0 auto;
-    
-                    >.left {
-                        width: 400px;
-    
-                        >h1 {
-                            font: 25px/1 "Galada", "arial";
+                    padding: 150px 0;
+                    >.wrap {
+                        width: 100%;
+                        margin: 0 auto;
+        
+                        >.left {
+                            float: none;
+                            width: 100%;
+        
+                            >h1 {
+                                font: 40px/1 "Galada", "arial";
+                            }
+        
+                            >p {
+                                font: bold 15px/1 "Comfortaa", "arial";
+                            }
                         }
-    
-                        >p {
-                            font: bold 15px/1 "Comfortaa", "arial";
+        
+                        >.right {
+                            width: 180px;
                         }
-                    }
-    
-                    >.right {
-                        width: 180px;
                     }
                 }
+               
             }
         }
     }
