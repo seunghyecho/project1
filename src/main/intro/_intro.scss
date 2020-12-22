@@ -38,7 +38,7 @@
                 height: 10px;
                 border-radius: 5px;
                 background: #fff;
-                border: 1px solid rgb(165, 28, 28);
+                border: 1px solid #e28e77;
                 margin-bottom: 20px;
                 transition: 0.5s;
             }
@@ -46,7 +46,7 @@
             &.on {
                 > a {
                     height: 60px;
-                    background: rgb(165, 28, 28);
+                    background: #e28e77;
                 }
             }
             
@@ -57,13 +57,12 @@
 
 /* intro */
 .wrap {
-    margin-top: -50px;
+    margin: 50px 0;
     position: relative;
 
     #content1 {
         width: 100%;
         padding:0px;
-        padding-bottom: 100px;
         position: relative;
         z-index: 3;
 
@@ -99,23 +98,6 @@
             }          
 
             > .wrap{
-                
-                &::before{
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    top: -45px;
-                    left: -36px;
-                    background-color: #fff;
-                    width: calc(100% + 80px);
-                    height: 170px;
-                    z-index: -1;
-                    transition: 0.5s;
-                    opacity: 0;
-                    transform: translateY(-80px);
-                }
-
-                
                 
                 &::after {
                     content: "";
@@ -254,18 +236,17 @@
     }
 
     #tab{
-        margin-top: 100px;
         width: 100%;
         padding: 0px 150px;
         box-sizing: border-box;
-        background-color: rgba(199, 34, 34, 0.99);
+        background-color: #f7e8e1;
 
         &.on{
             .inner>.wrap {
                 > .left{
                     > li{
                         h3{
-                            color: rgb(165, 28, 28);
+                            color: #e28e77;
                         }
                     }
                 }
@@ -307,7 +288,6 @@
                 > .left {
                     float: left;
                     width: 35%;
-                    height: 600px;
                     padding: 80px 104px 60px;
                     box-sizing: border-box;
                     background-color: rgb(54, 54, 54);
@@ -341,7 +321,7 @@
                             border-top: 1px solid #999;
 
                             &.on h3{
-                                color: rgb(165, 28, 28);
+                                color: #e28e77;
                             }
 
                             a {
@@ -387,8 +367,8 @@
 
                             > p{
                                 position: absolute;
-                                height: 700px;
-                                top: -100px;
+                                /* height: 700px; */
+                                top: 200px;
                                 right: -30px;
                                 overflow: hidden;
                                 /* z-index: 2; */
@@ -426,7 +406,7 @@
                                         width: 40px;
                                         height: 40px;
                                         background-color: #363636;
-                                        box-shadow: 5px 5px 10px rgba(255, 0, 98, 0.7);
+                                        box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.4);
                                         border-radius: 20px;
                                         transition: 0.5s;
                                         position: relative;
@@ -438,7 +418,7 @@
                                         }
 
                                         &:hover {
-                                            background: linear-gradient(45deg, rgb(251, 67, 67), rgb(231, 0, 0)); 
+                                            background-color: #e28e77; 
 
                                             span {
                                                 right: 25%;
@@ -480,7 +460,7 @@
                             opacity: 1;
 
                             > p{
-                                transform: translateX(140px);
+                                transform: translateX(-37px);
                             }
                             
                         }
@@ -690,7 +670,7 @@
             > .border_txt {
                 width: 200px;
                 margin: 50px auto;
-                border: 1px solid rgb(165, 28, 28);
+                border: 1px solid #e28e77;
                 border-radius: 100px;
                 
 
@@ -702,7 +682,7 @@
 
                 > a {
                     font: bold 15px/1 "Comfortaa", "arial";
-                    color: rgb(165, 28, 28);
+                    color: #e28e77;
                     
                     display: block;
                     padding: 10px 40px;
@@ -721,138 +701,7 @@
         }
     }
 
-    /* mockup , content4*/
-    #content4 {
-        padding: 100px 0;
-        position: relative;
-
-        &.on{
-            >.inner{
-                .left{
-                    opacity: 1;
-                    transform: translateX(0px);
-                    
-                }
-                .right{
-                    opacity: 1;
-                    transform: translateX(0px);
-                    transition-delay: 0.5s;
-                }
-            }
-        }
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: 17%;
-            left: 0;
-            width: 100%;
-            padding-bottom: 30%;
-            background: rgba(199, 34, 34, 1);
-            transform: skewY(10deg);
-            z-index: -1;
-        }
-
-        > .inner {
-            width: 1180px;
-            margin: 0px auto;
-
-            &::after {
-                content: "";
-                display: block;
-                clear: both;
-            }
-
-            > .left {
-                float: left;
-                width: 35%;
-                padding: 170px 0;
-                box-sizing: border-box;
-
-                opacity: 0;
-                transform: translateX(-100px);
-                transition: 1s;
-
-                h2 {
-                    font: bold 18px/1.2 "Comfortaa", "arial";
-                    color: #333;
-                    margin-bottom: 30px;
-                }
-
-                p {
-                    font: 12px/1.2 "Comfortaa", "arial";
-                    color: #fff;
-                    letter-spacing: 1px;
-                    margin-bottom: 30px;
-                }
-
-                ul {
-                    margin-bottom: 30px;
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        clear: both;
-                    }
-
-                    li {
-                        float: left;
-                        width: 47%;
-                        height: 40px;
-                        margin-left: 3%;                       
-
-                        &:first-child {
-                            margin-left: 0%;
-
-                            > a.on{
-                                background-color: #222;
-                                color: #fff;
-                            }
-                        }
-
-                        &:hover a {
-                            background-color: #222;
-                            color: #fff;
-                        }
-
-                        a {
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            background-color: #fff;
-                            font: bold 12px/40px "Comfortaa", "arial";
-                            color: #666;
-                            text-align: center;
-                            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.37);
-                        }
-                    }
-                }
-
-                strong {
-                    font: bold 14px/1 "Comfortaa", "arial";
-                    color: #444;
-                }
-            }
-
-            > .right {
-                float: left;
-                width: 65%;
-                padding: 0px;
-                box-sizing: border-box;
-                position: relative;
-
-                opacity: 0;
-                transform: translateX(200px);
-                transition: 1s;
-
-                > img {
-                    width: 100%;
-                }
-            }
-            
-        }
-
-    }
+   
 
     #content3 {
         padding: 100px 0;
@@ -988,6 +837,40 @@
             }
         }
     }
+
+    #content4 {
+        >.inner{    
+            >.videoWrap{
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
+                margin: 0 auto;
+                position: relative;
+
+                &::after{
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    // background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+                }
+
+                >.videoText{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    color: #ffffff;
+                }
+            }
+         }
+    }
+
     
 }
 
@@ -1136,32 +1019,7 @@
         }
     }
 
-    #content4 {
-        padding: 100px 0;
-
-        > .inner {
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-
-            > .left {
-                float: left;
-                width: 40%;
-                padding: 130px 0;
-                box-sizing: border-box;
-            }
-
-            > .right {
-                float: right;
-                width: 60%;
-                padding: 0px;
-                margin-top: 120px;
-        
-                box-sizing: border-box;
-                position: relative;
-            }
-        }
-    }
+   
 
     #content3 {
         padding: 100px 0;
@@ -1256,36 +1114,7 @@
         }
     }
 
-    #content4 {
-        padding: 100px 0;
 
-        &::before {
-            top: 10%;
-            padding-bottom: 80%;
-        }
-
-        > .inner {
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-
-            > .left {
-                float: none;
-                width: 100%;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            > .right {
-                float: none;
-                width: 100%;
-                padding: 0px;
-                box-sizing: border-box;
-                position: relative;
-                margin-top: 50px;
-            }
-        }
-    }
 
     #content3{
         .inner{

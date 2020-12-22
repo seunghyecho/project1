@@ -7,48 +7,47 @@
     overflow: hidden;
     position: relative;
     margin-top: 0px;
+    color: #555555;
 
     ul.imgBtn{
-        position: relative;
+        position: absolute;
         z-index: 3;
         display: flex;
-        justify-content: space-between;
+        right: 15%;
+        bottom: 10%;
 
         >li{
-            width: 150px;
-            height:150px;
+            width: 6vw;
+            height:6vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
-            position: absolute;
-            top: -268px;
-            transform: translate(-50%,-50%);
-            margin-left: -100px;
+            margin: 0 10px;
             cursor: pointer;
             transform: scale(1);
             transition: 0.5s;
-            box-shadow: 0px 12px 20px 3px rgba(155, 34, 34, .5);
+            box-shadow: 0px 2px 5px 1px rgba(255, 255, 255, 0.5);
           
 
             &:hover{
-                transform: scale(1.2);
+                transform: scale(1.1);
                 z-index: 3;
             }
 
             &:nth-of-type(1){
-                left: 12%;
-                background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+                background: url(../img/main/visual/img/visual1.jpg) center/cover no-repeat;
             }
             &:nth-of-type(2){
-                left: 21%;
                 background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
             }
             &:nth-of-type(3){
-                left: 30%;
                 background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
             }
 
             >a{
                 display: block;
-                font: 20px/150px "Galada", "arial";
+                font: 400 16px/126px "Galada", "arial";
                 text-align: center;
                 color: #fff;
                 text-transform: uppercase;
@@ -63,57 +62,37 @@
         width: 100%;
         height: 100%;
 
-        >#box1 {
-            background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
-
-            a {
-                background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
-            }
-        }
-
-        >#box2 {
-            background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
-
-            a {
-                background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
-            }
-        }
-
-        >#box3 {
-            background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
-            background-color: blueviolet;
-
-            a {
-                background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
-            }
-        }
-
-
         > li{
-
             &.box {
                 width: 100%;
                 height: 100%;
-                padding: 450px 0px;
                 box-sizing: border-box;
-                // opacity: 0;
                 z-index: 1;
                 position: absolute;
-                transition:clip-path 2s;
+                transition: clip-path 2s;
     
                 > .wrap {
-                    width: 100%;
+                    width: 1180px;
                     margin: 0 auto;
-                    padding: 0 100px;
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    &::after{
+                        content: "";
+                        display: block;
+                        clear: both;
+                    }
     
                     > .left {
                         float: left;
-                        position: relative;
                         z-index: 1;
-                        width: 50%;
     
                         > h1 {
-                            font: 60px/1 "Galada", "arial";
+                            font: 30px/1 "Galada", "arial";
                             color: #fff;
                             margin-bottom: 20px;
                             transition: 0.5s;
@@ -127,8 +106,10 @@
                     }
     
                     > .right {
-                        width: 100%;
-                        position: absolute;
+                        float: right;
+                        display: block;
+                        width: 1200px;
+                        height: 600px;
     
                         > h1 {
                             font: 20px/1 "arial";
@@ -141,23 +122,19 @@
                             color: rgb(199, 34, 34);
                             transition: 0.5s;
                         }
-    
-                        > a {
-                            width: 1200px;
-                            height: 600px;
-                            display: block;
-                            position: absolute;
-                            top: 0%;
-                            right: 0%;
-                            transition: 1s;
-                            margin-top: -300px;
-                            margin-right: 200px;
-    
+                        &.rightImg01{
+                            background: url(../img/main/visual/img/visual1.jpg) center/cover no-repeat;
+                        }
+                        &.rightImg02{
+                            background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+                        }
+                        &.rightImg03{
+                            background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
                         }
                     }
                 }
     
-                &::after {
+                &::before {
                     content: "";
                     display: block;
                     position: absolute;
@@ -166,26 +143,69 @@
                     width: 60%;
                     height: 100%;
                     // transform: skewX(-30deg);
-                    background-color: rgba(192, 35, 35, 0.4);
+                    background-color: rgba(255,255,255,0.5);
                     z-index: -1;
                 }
     
                 &:nth-of-type(1){
-                    clip-path:circle(0% at 12% 80%);  
-                    background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+                    clip-path:circle(0% at 67% 80%);  
+                    background: url(../img/main/visual/img/visual1.jpg) center/cover no-repeat;
     
                 }
                 &:nth-of-type(2){
-                    clip-path:circle(0% at 21% 80%);  
+                    clip-path:circle(0% at 74% 80%);  
                     background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
     
                 }
                 &:nth-of-type(3){
-                    clip-path:circle(0% at 30% 80%);  
+                    clip-path:circle(0% at 82% 80%);  
                     background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
     
                 }         
                 
+            }
+            &#box1 {
+                background: url(../img/main/visual/img/visual1.jpg) center/cover no-repeat;
+    
+                // >.right{
+                //     &::after{
+                //         content: "";
+                //         display: block;
+                //         width: 1200px;
+                //         height: 600px;
+                //         background: url(../img/main/visual/img/visual1.jpg) center/cover no-repeat;
+                //     }
+                // }
+            }
+    
+            &#box2 {
+                background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+                
+                // >.right{
+                //     &::after{
+                //         content: "";
+                //         display: block;
+                //         width: 1200px;
+                //         height: 600px;
+                //         background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
+                //     }
+                // }
+              
+            }
+    
+            &#box3 {
+                background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+                background-color: blueviolet;
+    
+                // >.right{
+                //     &::after{
+                //         content: "";
+                //         display: block;
+                //         width: 1200px;
+                //         height: 600px;
+                //         background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
+                //     }
+                // }
             }
 
             &.upper{
@@ -193,18 +213,18 @@
                 z-index: 3;
     
                 &:nth-of-type(1){
-                    clip-path:circle(130% at 12% 80%);  
-                    background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+                    clip-path:circle(130% at 67% 80%);  
+                    background: url(../img/main/visual/img/visual1.jpg) center/cover no-repeat;
     
                 }
     
                 &:nth-of-type(2){
-                    clip-path:circle(130% at 21% 80%);  
+                    clip-path:circle(130% at 74% 80%);  
                     background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
     
                 }
                 &:nth-of-type(3){
-                    clip-path:circle(130% at 30% 80%);  
+                    clip-path:circle(130% at 82% 80%);  
                     background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
     
                 }
@@ -215,29 +235,23 @@
                 z-index: 2;
     
                 &:nth-of-type(1){
-                    clip-path:circle(130% at 12% 80%);  
-                    background: url(../img/main/visual/img/photo-1544616639-8d0bf4c2f35a.jfif) center/cover no-repeat;
+                    clip-path:circle(130% at 67% 80%);  
+                    background: url(../img/main/visual/img/visual1.jpg) center/cover no-repeat;
     
                 }
     
                 &:nth-of-type(2){
-                    clip-path:circle(130% at 21% 80%);  
+                    clip-path:circle(130% at 74% 80%);  
                     background: url(../img/main/visual/img/visual2.jpg) center/cover no-repeat;
     
                 }
                 &:nth-of-type(3){
-                    clip-path:circle(130% at 30% 80%);  
+                    clip-path:circle(130% at 82% 80%);  
                     background: url(../img/main/visual/img/visual3.jpg) center/cover no-repeat;
     
                 }
             }
         }
-
-        
-
-        
-
-       
     }
 }
 

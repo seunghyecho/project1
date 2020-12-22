@@ -106,3 +106,14 @@ exports.send_json = send_json;
 exports.watch = watch;
 const build = gulp.series(html_include_main, html_include_sub, style, js_combine, send_json,watch);
 exports.default = build;
+
+// gulp.task('watch', () => {
+//     return new Promise( resolve => {
+//         gulp.watch(PATH.HTML + "./**/*.html", gulp.series(['html']));
+//         gulp.watch(PATH.ASSETS.STYLE + "./**/*.scss", gulp.series(['scss:compile']));
+        
+//         resolve();
+//     });
+// });
+
+// gulp.task( 'default', gulp.series(['scss:compile', 'html', 'nodemon:start', 'watch']));
