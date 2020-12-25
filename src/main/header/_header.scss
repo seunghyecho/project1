@@ -12,12 +12,14 @@ body{
     transition: 0.5s;
 
     &.on{
-        background-color: rgba(39, 38, 38, 0.83);
+        background-image: linear-gradient(to bottom ,#f7f2e9, transparent);
         position: fixed;
-        margin-top: -50px;      
-        
-        .inner > .gnb{
-            margin-top: 10px;
+
+        .inner{
+            height: 70px;
+        }
+        .inner .utill{
+            display: none;
         }
     }
 
@@ -26,42 +28,44 @@ body{
         height: 140px;
         margin: 0 auto;
         position: relative;
+        transition: .2s;
 
-        >h1 {
+        .hidden {
             display: none;
+            opacity: 0;
+            visibility: hidden;
         }
-            
+        
+        .d-flex{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            >a.logo{
-                display: block;
-                position: absolute;
-                bottom: 30px;
-                left: 20px; 
-                font: bold 30px/1 "Comfortaa", "arial";
-                color: rgb(240, 240, 240);
-                text-transform: uppercase;
-                opacity: 0;
-                transition: 0.5s;
-                transform: translateX(-10px);
+            h1{
+                display: inline-block;
 
-                &.logo.show{
-                    opacity: 1;
-                    transform: translateX(0px);
-                    transition-delay: 0.1s;
+                &.logo{
+                    display: block;
+                    font: 500 30px/1 "Comfortaa", "arial";
+                    transition: 0.5s;
+    
+                    &.show{
+                        opacity: 1;
+                        transform: translateX(0px);
+                        transition-delay: 0.1s;
+                    }
 
+                    span{
+                        font-weight: 600;
+                    }
                 }
-
-                >span{
-                    font-weight: normal;
-                    color: rgb(190, 190, 190);
-                }
+               
             }
         
 
-        >.gnb {
-            position: absolute;
-            right: 0;
-            top: 40%;
+        .gnb {
             transition: 0.5s;
 
             
@@ -99,7 +103,6 @@ body{
 
                 >a {
                     font: bold 14px/60px "Comfortaa", "arial";
-                    color: rgb(240, 240, 240);
                     padding: 0 20px;
                     width: 100px;
                     text-align: center;
@@ -142,6 +145,9 @@ body{
            
                
         }
+        }
+
+        
         >.utill{
             position: absolute;
             right: 0;

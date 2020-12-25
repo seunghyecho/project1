@@ -100,34 +100,25 @@ $(document).ready(function(){
 
         var scroll = $(this).scrollTop();
         
-        var pos0 = $('.myScroll').eq(0).offset().top; //header
-        // console.log(scroll,$('.myScroll').eq(1).offset().top)
-        var pos1 = $('.myScroll').eq(1).offset().top; //content1
-        var pos2 = $('.myScroll').eq(2).offset().top; //tab
-        var pos3 = $('.myScroll').eq(3).offset().top; //content2
+        var pos0 = $('.myScroll').eq(0).offset().top; //content1
+        var pos1 = $('.myScroll').eq(1).offset().top; //tab
+        var pos2 = $('.myScroll').eq(2).offset().top; //content2
+        var pos3 = $('.myScroll').eq(3).offset().top; //content3
         var pos4 = $('.myScroll').eq(4).offset().top; //content4
-        var pos5 = $('.myScroll').eq(5).offset().top; //content3
         
-        if(scroll > 10){
-            $('header').addClass('on');
-        }
-        if(scroll >= (pos1 - 600) && scroll < pos2 ){
+
+        if(scroll < 300){
+            $('#navi').hide();
+        }else if(scroll >= (pos0 - 100) && scroll < pos1 ){
+            $('#navi').show();
             $('#content1').addClass('on');
-        }
-
-        if(scroll >= (pos2 - 600) && scroll < pos3 ){
+        }else if(scroll >= (pos1 - 100) && scroll < pos2 ){
             $('#tab').addClass('on');
-        }
-
-        if(scroll >= (pos3 - 600) && scroll < pos4){
+        }else if(scroll >= (pos2 - 100) && scroll < pos3){
             $('#content2').addClass('on');
-        }
-
-        if(scroll >= (pos4 - 600) && scroll < pos5){
+        }else if(scroll >= (pos3 - 100) && scroll < pos4){
             $('#content4').addClass('on');
-        }
-
-        if(scroll >= (pos5 - 600) ){
+        }else if(scroll >= (pos4 - 100) ){
             $('#content3').addClass('on');
         }
 
