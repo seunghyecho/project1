@@ -515,97 +515,67 @@
                     opacity: 0;
                     transform: translateY(80px);      
 
-                    img{
-                        width: auto;
-                        height: 100%;
+                    a{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        width: 100%;
+                        height: auto;
+
+                        img{
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        > div {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 90px;
+                            padding: 10px;
+                            box-sizing: border-box;
+                            background-color: rgba(240, 240, 240, 0.99);
+                            transition: 0.5s;
+                            transform: translateY(90px);
+                            opacity: 0;
+                            visibility: hidden;
+                            z-index: 1;
+    
+                            > h2 {
+                                font: bold 14px/1 "Comfortaa", "arial";
+                                color: #444;
+                                transition: 0.5s;
+                                margin-top: 10px;
+                            }
+    
+                            > a {
+                                display: inline-block;
+                                text-align: center;
+                                font: 13px/32px "Comfortaa", "arial";
+                                color: rgb(199, 34, 34);
+                                transition: 0.5s;
+    
+                                &:last-child {
+                                    float: right;
+                                }
+    
+                                > i {
+                                    width: 20px;
+                                    height: 20px;
+                                    background-color:#e28e77;
+                                    color: #efefef;
+                                    font-size: 10px;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
                     }
-                             
-                    
-
-                    // &:nth-of-type(1) {
-                    //     background-image: url(../../img/main/intro/img/photo-1556798939-60ea9f2e08f2.jfif);
-                    // }
-
-                    // &:nth-of-type(2) {
-                    //     background-image: url(../../img/main/intro/img/photo-1536338701933-9fb6ce505c48.jfif);
-                    // }
-
-                    // &:nth-of-type(3) {
-                    //     background-image: url(../../img/main/intro/img/photo-1518366352543-6609db5ccdef.jfif);
-                    // }
-
-                    // &:nth-of-type(4) {
-                    //     background-image: url(../../img/main/intro/img/photo-1552961449-a90c5f2a8179.jfif);
-                    // }
-
-                    // &:nth-of-type(5) {
-                    //     background-image: url(../../img/main/intro/img/photo-1548666006-a8296ec63c89.jfif);
-                    // }
-
-                    // &:nth-of-type(6) {
-                    //     background-image: url(../../img/main/intro/img/photo-1571493835239-69b6a9f4229a.jfif);
-                    // }
-
-                    // &:nth-of-type(7) {
-                    //     background-image: url(../../img/main/intro/img/photo-1562185669-3eca86dc3406.jfif);
-                    // }
-
-                    // &:nth-of-type(8) {
-                    //     background-image: url(../../img/main/intro/img/photo-1541787416242-91d0bae0a4b2.jfif);
-                    // }
-
                     &:hover > div {
                         transform: translateY(0px);
                         opacity: 1;
                         visibility: visible;
-                    }
-
-                    > div {
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 90px;
-                        padding: 10px;
-                        box-sizing: border-box;
-                        background-color: rgba(240, 240, 240, 0.99);
-                        transition: 0.5s;
-                        transform: translateY(90px);
-                        opacity: 0;
-                        visibility: hidden;
-                        z-index: 1;
-
-                        > h2 {
-                            font: bold 14px/1 "Comfortaa", "arial";
-                            color: #444;
-                            transition: 0.5s;
-                            margin-top: 10px;
-                        }
-
-                        > a {
-                            display: inline-block;
-                            text-align: center;
-                            font: 13px/32px "Comfortaa", "arial";
-                            color: rgb(199, 34, 34);
-                            transition: 0.5s;
-
-                            &:last-child {
-                                float: right;
-                            }
-
-                            > i {
-                                width: 20px;
-                                height: 20px;
-                                background-color: rgb(199, 34, 34);
-                                color: #efefef;
-                                font-size: 10px;
-                                line-height: 20px;
-                            }
-                        }
-                    }
-
-                    > a:last-child {
-                        margin-right: 0;
                     }
                 }
             }
