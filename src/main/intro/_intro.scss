@@ -144,7 +144,7 @@
     
                     >a {
                         border-radius: 40px;
-                        background: linear-gradient(90deg, rgb(199, 34, 34), rgb(252, 69, 13));
+                        background: linear-gradient(90deg, #e28e77, #fda56a);
                         font: bold 10px/30px "Comfortaa", "arial";
                         color: rgb(255, 246, 246);
                         display: block;
@@ -155,8 +155,13 @@
                         position: relative;
                         overflow: hidden;
                         
-                        span{
-
+                        >span {
+                            position: absolute;
+                            background: #fff;
+                            transform: translate(-50%, -50%);
+                            pointer-events: none;
+                            border-radius: 50%;
+                            @include animation( 0s, 1s, animate) ;
                         }
                     }
     
@@ -178,20 +183,20 @@
                     }
     
                     &:nth-of-type(2){
-                        background-image: url(../img/main/intro/img/photo-1527353530964-cd2b2c58533b.jfif);
+                        background-image: url(/img/main/visual/img/HeroRegularStandard_bloom-ambrosia-02_001_Default.jpg);
                         margin-bottom: 20px;
                    
                     }
                     &:nth-of-type(3){
-                        background-image: url(../img/main/intro/img/photo-1515600783-fab475a8ae72.jfif);
+                        background-image: url(/img/main/visual/img/HeroRegularStandard_Garden-pinkhero_001_Default.jpg);
                         margin-bottom: 20px;
                         margin-right: 0;
                     }
                     &:nth-of-type(4){
-                        background-image: url(../img/main/intro/img/photo-1570034873052-db70e5c61323.jfif);
+                        background-image: url(/img/main/visual/img/HeroRegularStandard_LuxuryCollection-2019_001_Default.jpg);
                     }
                     &:nth-of-type(5){
-                        background-image: url(../img/main/intro/img/photo-1585859537639-590a4d2864af.jfif);
+                        background-image: url(/img/main/visual/img/HeroRegularStandard_S93-Memoire-02_001_Default.jpg);
                         margin-right: 0;
                     }
                 }
@@ -223,10 +228,6 @@
                     box-sizing: border-box;
                     background-color: rgb(54, 54, 54);
 
-                    h3 {
-                        color: #999999;
-                    }
-
                     ul {
                         display: flex;
                         justify-content: space-evenly;
@@ -244,14 +245,9 @@
                             cursor: pointer;
                             border-bottom: 1px solid #999;
 
-                            &.on h3{
-                                color: #e28e77;
-                            }
-
                             a {
                                 display: block;
-                                width: 100%;
-                                height: 100%;
+                                color: #999999;
                             }
                         }
                     }
@@ -725,6 +721,7 @@
                             width: 100%;
                             margin-bottom: 20px;
                             height: 300px;
+                            margin-left: 0;
                         }
                         &:nth-of-type(2),
                         &:nth-of-type(3),
@@ -819,13 +816,9 @@
 
                     > article {
                         float: left;
-                        width: 49%;
-                        margin-right: 2%;
+                        width: calc(100%/2);
+                        margin-right: 0;
                         box-sizing: border-box;
-
-                        &:nth-of-type(2n) {
-                            margin-right: 0%;
-                        }
 
                         > div {
                             width: 100%;
@@ -849,11 +842,6 @@
         }
 
         #content3 {
-            padding-top: 100px;
-
-            p {
-                width: 100%;
-            }
 
             > .inner {
                 width: 100%;
@@ -910,6 +898,18 @@
                     > .left {
                         float: none;
                         width: 100%;
+
+                        ul{
+                            width: 100%;
+                            text-align: center;
+                            
+                            li:hover{
+                                background-color: #e28e77;
+                                a{
+                                    color: #ffffff;
+                                }
+                            }
+                        }
 
                         > h2{
                             font: bold 94px/1 "arial";
