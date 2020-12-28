@@ -38,67 +38,9 @@
    
 </head>
 <body>
-    <header id="header" class="myScroll">
+    <header id="header">
         <div class="inner">
-            <h1>yourlogo</h1>
-            <a href="/@Company/index.html" class="logo">Your<span>logo</span></a>
-            
-            <ul class="gnb">
-                <li>
-                    <a href="/@Company/subPage/department/department.html">department</a>
-                    <ul class="gnbSub">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/@Company/subPage/community/community.html">community</a>
-                    <ul class="gnbSub">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/@Company/subPage/member/member.html">members</a>
-                    <ul class="gnbSub">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/@Company/subPage/gallery/gallery.html">gallery</a>
-                    <ul class="gnbSub">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/@Company/subPage/location/location.html">location</a>
-                    <ul class="gnbSub">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/@Company/subPage/youtube/youtube.html">youtube</a>
-                    <ul class="gnbSub">
-                        <li><a href="#">lorem ipsum</a></li>
-                        <li><a href="#">lorem ipsum</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/@Company/subPage/flickr/flickr.html"><i class="fab fa-flickr"></i> flickr</a>
-                    <ul class="gnbSub">
-                        <li><a href="#">lorem ipsum</a></li>
-                        <li><a href="#">lorem ipsum</a></li>
-                    </ul>       
-                </li>
-            </ul>
+            <!-- utill -->
             <ul class="utill">
                 <li><a href="#"><i class="fas fa-search"></i></a></li>
                 <li><a href="#">Login</a></li>
@@ -107,22 +49,93 @@
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
             </ul>
+            <!-- logo & gnb -->
+            <div class="d-flex">
+                <h1 class="logo"><a href="index.html">Your<span>logo</span></a></h1>
+                <ul class="gnb">
+                    <li>
+                        <a href="subPage/department/department.html">department</a>
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="subPage/community/community.html">community</a>
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="subPage/member/member.html">members</a>
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="subPage/gallery/gallery.html">gallery</a>
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>
+                    </li> -->
+                    <li>
+                        <a href="subPage/interactiveWeb/interactiveWeb.html">gallery</a>
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="subPage/location/location.html">location</a>
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="subPage/youtube/youtube.html">youtube</a>
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="subPage/flickr/flickr.html"><i class="fab fa-flickr"></i> flickr</a>   
+                        <ul class="gnbSub">
+                            <li><a href="#">lorem ipsum</a></li>
+                            <li><a href="#">lorem ipsum</a></li>
+                        </ul>       
+        
+                    </li>
+                </ul>
+            </div>
             <!-- 웹메뉴버튼 -->
             <a href="#" class="menuBtn"><i class="fas fa-bars"></i></a>
-        </div>       
+           
+        </div>
+         <!-- 모바일메뉴 -->
+         <section id="gnb_mo">
+            <ul>
+                <li><a href="index.html"> </a></li>
+                <li><a style="font-size: bold; color:#e28e77;" href="index.html">home</a></li>
+                <li><a href="subPage/department/department.html">department</a></li>
+                <li><a href="subPage/community/community.html">community</a></li>
+                <li><a href="subPage/member/member.html">members</a></li>
+                <li><a href="subPage/gallery/gallery.html">gallery</a></li>
+                <li><a href="subPage/location/location.html">location</a></li>
+                <li><a href="subPage/youtube/youtube.html">youtube</a></li>
+                <li><a href="subPage/flickr/flickr.html"><i class="fab fa-flickr"></i>flickr</a></li>
+            </ul>
+        </section>
     </header>
-      <!-- 모바일메뉴 -->
-      <section id="gnb_mo">
-        <ul>
-            <li><a style="font-size: bold; color: rgb(255, 44, 44);" href="/@Company/index.html">home</a></li>
-            <li><a href="/@Company/subPage/department/department.html">department</a></li>
-            <li><a href="/@Company/subPage/community/community.html">community</a></li>
-            <li><a href="/@Company/subPage/member/member.html">members</a></li>
-            <li><a href="/@Company/subPage/gallery/gallery.html">gallery</a></li>
-            <li><a href="/@Company/subPage/location/location.html">location</a></li>
-            <li><a href="/@Company/subPage/youtube/youtube.html">youtube</a></li>
-            <li><a href="/@Company/subPage/flickr/flickr.html"><i class="fab fa-flickr"></i>flickr</a></li>
-        </ul>
-    </section>
-
-<!-- <figure id="sub_visual" class="sub_visual"></figure> -->
+    
+    
