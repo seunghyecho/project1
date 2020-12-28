@@ -12,7 +12,7 @@ body{
     transition: 0.5s;
 
     &.on{
-        background-image: linear-gradient(to bottom ,#f7f2e9, transparent);
+        background-color: #ffffff;
         position: fixed;
 
         .inner{
@@ -28,7 +28,7 @@ body{
         height: 140px;
         margin: 0 auto;
         position: relative;
-        transition: .2s;
+        z-index: 7;
 
         .hidden {
             display: none;
@@ -173,7 +173,7 @@ body{
             top: 10px;
             right: 20px;
             font-size: 30px;
-            color: rgb(199, 34, 34);
+            color: #e28e77;
             opacity: 0;
             transition: 1s 1s;
             transform: translateY(-100%) scale(0.8);
@@ -184,17 +184,16 @@ body{
 /* 모바일메뉴 */
 
 #gnb_mo {
-    width: 80%;
-    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    background: #ffffff;
     position: fixed;
-    top: 0;
-    left: -80%;
-    height: 100vh;
+    top: -900px; 
+    left: 0;
     transition: 1s;
-    z-index: 10;
+    z-index: 6;
 
     &.on {
-        left: 0;
+        top: 0;
     }
 
     > ul {
@@ -207,10 +206,10 @@ body{
                     display: block;
                     text-transform: uppercase;
                     font: bold 18px/1.3 "Comfortaa", "arial";
-                    color: #fff;
+                    color: #555555;
                 }
             }
-    }
+        }
 }
 
 
@@ -218,37 +217,23 @@ body{
 @media screen and (max-width:$tablet){
 
     #header {
-        width: 100%;;
-        position: fixed;
-
-        &.on{
-            margin-top: 0px;
-            height: 70px;
-        }
         
         .inner {
-        width: 100%;
-        height: 80px;
-        padding: 0 20px;
-        box-sizing: border-box;
-
+            width: 100%;
+            height: 70px;
+            padding: 0 20px;
+            box-sizing: border-box;
             
-            >.gnb {
-                display: none;
-            }
-
-            >.utill {
-                display: none;
-            }
-
-            > .menuBtn {
+            .gnb {display: none;}
+            .utill {display: none;}
+            .menuBtn {
                 transform: translateY(0%);
                 opacity: 1;
             }
 
-    }
+        }
 
-}
+    }
     
 }
 //cellphone

@@ -58,28 +58,27 @@ $(document).ready(function(){
                     var sub = data.article[index].subtitle;
                     var linkUrl = data.article[index].link;
 
-                    $('#content2 .wrap')
-                        .append(
-                            $('<article>').css('background-image', 'url(' + imgUrl + ')')
+                    $('#content2 .wrap').append(
+
+                        $('<article>')
+
                             .append(
-                                $('<div>')
+                                $('<a>').attr('href','#').css('background-image', 'url(' + imgUrl + ')')
                                 .append(
-                                    $('<h2>').text(tit)
-                                )
-                                .append(
-                                    $('<a>').attr('href','#').text(sub)
-                                )
-                                .append(
-                                    $('<a>').attr('href','#').text(sub)
-                                )
-                                .append(
-                                    $('<a>').attr('href','#').append(
-                                        $('<i>').addClass("fas fa-bookmark")
+                                    $('<div class="box_contents">')
+                                    .append(
+                                        $('<div class="box_text">')
+                                        .append(
+                                            $('<strong>').text(tit)
+                                        )
+                                        .append(
+                                            $('<span>').text(sub)
+                                        )
                                     )
+                                   
                                 )
                             )
                         )
-                    
                 });
             },
             error : function(){
@@ -92,43 +91,45 @@ $(document).ready(function(){
     });
 
     // 스크롤시 컨텐츠 마다 .on
-
     $(window).on('scroll', function(){
-
-        $('header').removeClass('on');
-        
-
         var scroll = $(this).scrollTop();
-        
         var pos0 = $('.myScroll').eq(0).offset().top; //content1
         var pos1 = $('.myScroll').eq(1).offset().top; //tab
         var pos2 = $('.myScroll').eq(2).offset().top; //content2
         var pos3 = $('.myScroll').eq(3).offset().top; //content3
         var pos4 = $('.myScroll').eq(4).offset().top; //content4
-        
+        // console.log("scroll:"+scroll);
+        // console.log("pos0:"+pos0);
+        // console.log("pos1:"+pos1);
+        // console.log("pos2:"+pos2);
+        // console.log("pos3:"+pos3);
+        // console.log("pos4:"+pos4);
 
-        if(scroll < 300){
-            $('#navi').hide();
-        }else if(scroll >= (pos0 - 100) && scroll < pos1 ){
-            $('#navi').show();
-            $('#content1').addClass('on');
-        }else if(scroll >= (pos1 - 100) && scroll < pos2 ){
-            $('#tab').addClass('on');
-        }else if(scroll >= (pos2 - 100) && scroll < pos3){
-            $('#content2').addClass('on');
-        }else if(scroll >= (pos3 - 100) && scroll < pos4){
-            $('#content4').addClass('on');
-        }else if(scroll >= (pos4 - 100) ){
-            $('#content3').addClass('on');
-        }
+
+        // if(scroll < 300){
+        //     $('header').removeClass('on');
+        //     $('#navi').hide();
+        // }else if(scroll >= (pos0 - 400) && scroll < pos1 ){
+        //     $('header').addClass('on');
+        //     $('#navi').show();
+        //     $('#content1').addClass('on');
+        // }else if(scroll >= (pos1 - 200) && scroll < pos2 ){
+        //     $('#tab').addClass('on');
+        // }else if(scroll >= (pos2 - 200) && scroll < pos3){
+        //     $('#content2').addClass('on');
+        // }else if(scroll >= (pos3 - 200) && scroll < pos4){
+        //     $('#content3').addClass('on');
+        // }else if(scroll >= (pos4 - 200) ){
+        //     $('#content4').addClass('on');
+        // }
 
     });
     
-        $('header').removeClass('on');
-        $('#content1').removeClass('on');
-        $('#content2').removeClass('on');
-        $('#content4').removeClass('on');
-        $('#content3').removeClass('on');
+        // $('header').removeClass('on');
+        // $('#content1').removeClass('on');
+        // $('#content2').removeClass('on');
+        // $('#content4').removeClass('on');
+        // $('#content3').removeClass('on');
 
         
 
