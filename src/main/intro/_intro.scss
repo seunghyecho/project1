@@ -245,9 +245,16 @@
                             cursor: pointer;
                             border-bottom: 1px solid #999;
 
+                            &.on{
+                                a{
+                                    color: #ffffff;
+                                }
+                            }
+
                             a {
                                 display: block;
                                 color: #999999;
+
                             }
                         }
                     }
