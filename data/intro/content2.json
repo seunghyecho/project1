@@ -1,0 +1,22 @@
+{
+    "article":[
+        {
+            "img":"../img/main/visual/img/img07.jpg",
+            "title":"Special Edition",
+            "subtitle":"Lorem ipsum dolor sit amet.",
+            "link":"#"
+        },
+        {
+            "img":"../img/main/visual/img/img08.jpg",
+            "title":"Special Edition",
+            "subtitle":"Lorem ipsum dolor sit amet.",
+            "link":"#"
+        },
+        {
+            "img":"../img/main/visual/img/img09.jpg",
+            "title":"Special Edition",
+            "subtitle":"Lorem ipsum dolor sit amet.",
+            "link":"#"
+        }
+    ]
+}
