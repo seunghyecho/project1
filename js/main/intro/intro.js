@@ -90,6 +90,19 @@ $(document).ready(function(){
 
     });
 
+    //content4 : mousemove
+    window.addEventListener('mousemove', function(e){
+        var content4 = $('#content4 .videoText');
+        var mousePos = { x: 0, y: 0 };
+        mousePos.x = -1 + (e.clientX / window.innerWidth) * 2;
+        mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
+
+        content4.css({
+            'transform':'rotateX('+mousePos.y*5+'deg) rotateY('+mousePos.x*5+'deg)'
+        });
+
+    })
+
     // 스크롤시 컨텐츠 마다 .on
 //     $(window).on('scroll', function(){
 //         var scroll = $(this).scrollTop();
