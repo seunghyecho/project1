@@ -677,6 +677,7 @@
                 overflow: hidden;
                 margin: 50px 0 0;
                 position: relative;
+                background-color: #e28e77;
 
                 &::after{
                     content: "";
@@ -691,17 +692,19 @@
                 }
 
                 >.videoText{
-                    position: absolute;
-                    width: 100%;
                     margin-top: 250px;
+                    position: absolute;
                     top: 0;
-                    /* top: 50%; */
-                    /* left: 50%; */
+                    width: 100%;
                     color: #ffffff;
                     font-size: 20px;
                     font-weight: 700;
                     font-family: 'Comfortaa';
                     transform-style: preserve-3d;
+                    
+                    p{
+                        text-align: center;
+                    }
                 }
             }
          }
