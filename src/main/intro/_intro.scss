@@ -23,36 +23,40 @@
     }
 }
 
-#navi {
+.floating_menu {
     position: fixed;
     left: 2%;
     top: 50%;
     transform: translateY(-50%);
     z-index: 4;
     
-        > li {
-           
-            > a.dot {
-                display: block;
-                width: 10px;
-                height: 10px;
-                border-radius: 5px;
-                background: #fff;
-                border: 1px solid #555555;
-                margin-bottom: 20px;
-                transition: 0.5s;
-            }
+    li {
+        margin-bottom: 20px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        border: 1px solid #555555;
+        background-color: #fff;
+        font-size: 14px;
+        transition: 0.5s;
 
-            &.on {
-                > a {
-                    height: 60px;
-                    background-color: #555555;
-                }
-            }
+        &:last-child{
+            width: 0;
+            border: none;
+        }
+
+        &.on {
+            height: 60px;
+            background-color: #555555;
             
         }
 
-
+        > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
 /* intro */
