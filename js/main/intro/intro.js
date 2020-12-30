@@ -1,14 +1,45 @@
-$(document).ready(function(){
+$(function(){
     console.log('main intro');
 
-    // $(".myScroll").myScroll({
-    //     btns: "#navi>li",
-    //     speed: 800,
-    //     base: 0,
-    //     active: "on",
-    // });
+    // floating_menu : click
+    var $menu = $('.floating_menu li');
+    var $doc = $('html, body');
+    var $section = $('.scroll');
 
-     // CONTENT1 CLICK BUTTON
+    $menu.on('click', 'a' ,function(e){
+        var $li = $(this).parent();
+        var idx = $li.index();
+        var sectionIndex = $section.eq(idx);
+        var offsetTop = sectionIndex.offset().top;
+
+        $doc.stop().animate({
+            scrollTop:offsetTop
+        },800);
+        return false;
+
+    });
+
+    // floating_menu : scroll
+    $(window).scroll(function(){
+
+        var scltop = $(this).scrollTop();
+
+        $.each($section, function(idx){
+
+            var $target = $section.eq(idx);
+            var targetTop = $target.offset().top;
+
+            if(targetTop <= scltop){
+                $menu.removeClass('on');
+                $menu.eq(idx).addClass('on');
+            }
+            if(!(300 <= scltop)){
+                $menu.removeClass('on');
+            }
+        });
+    });
+
+     // CONTENT1 :  click
      var buttons = $("#content1").find("a");
    
      $(buttons)
@@ -27,7 +58,7 @@ $(document).ready(function(){
              });
          });
 
-           // TABMENU BUTTON
+    // TAB : click
     $("#tab ul li").on("click", function (e) {
         e.preventDefault();
 
@@ -39,7 +70,7 @@ $(document).ready(function(){
        
     });
 
-    // content2 : view more
+    // content2 : click - >더보기
     $('#content2 .border_txt a').on('click', function(e){
         e.preventDefault();
 
@@ -101,49 +132,7 @@ $(document).ready(function(){
             'transform':'rotateX('+mousePos.y*5+'deg) rotateY('+mousePos.x*5+'deg)'
         });
 
-    })
+    });
 
-    // 스크롤시 컨텐츠 마다 .on
-//     $(window).on('scroll', function(){
-//         var scroll = $(this).scrollTop();
-//         var pos0 = $('.myScroll').eq(0).offset().top; //content1
-//         var pos1 = $('.myScroll').eq(1).offset().top; //tab
-//         var pos2 = $('.myScroll').eq(2).offset().top; //content2
-//         var pos3 = $('.myScroll').eq(3).offset().top; //content3
-//         var pos4 = $('.myScroll').eq(4).offset().top; //content4
-//         console.log("scroll:"+scroll);
-//         console.log("pos0:"+pos0);
-//         console.log("pos1:"+pos1);
-//         console.log("pos2:"+pos2);
-//         console.log("pos3:"+pos3);
-//         console.log("pos4:"+pos4);
-
-
-//         if(scroll < 300){
-//             $('header').removeClass('on');
-//             $('#navi').hide();
-//         }else if(scroll >= (pos0 - 400) && scroll < pos1 ){
-//             $('header').addClass('on');
-//             $('#navi').show();
-//             $('#content1').addClass('on');
-//         }else if(scroll >= (pos1 - 200) && scroll < pos2 ){
-//             $('#tab').addClass('on');
-//         }else if(scroll >= (pos2 - 200) && scroll < pos3){
-//             $('#content2').addClass('on');
-//         }else if(scroll >= (pos3 - 200) && scroll < pos4){
-//             $('#content3').addClass('on');
-//         }else if(scroll >= (pos4 - 200) ){
-//             $('#content4').addClass('on');
-//         }
-
-//     });
-    
-//         $('header').removeClass('on');
-//         $('#content1').removeClass('on');
-//         $('#content2').removeClass('on');
-//         $('#content4').removeClass('on');
-//         $('#content3').removeClass('on');
-
-        
 
 });

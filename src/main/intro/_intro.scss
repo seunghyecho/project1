@@ -29,10 +29,10 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 4;
-
     
         > li {
-            > a {
+           
+            > a.dot {
                 display: block;
                 width: 10px;
                 height: 10px;
@@ -721,7 +721,6 @@
 
         #content1 {
             width: 100%;
-            padding: 50px 0;
 
             > .inner {
                 width: 100%;
@@ -822,7 +821,6 @@
         }
 
         #content2 {
-            padding-top: 100px;
 
             > .inner {
                 width: 100%;

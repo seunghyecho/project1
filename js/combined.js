@@ -26,74 +26,48 @@ $(document).ready(function(){
     });
 
 })
-$(document).ready(function(){
-    
-    var lis = $('#visual li');
-    var i = 0; // 0 <= i < lis.lenght-1;
-    
-    $('a.rightBtn').on('click', function(e){
-        e.preventDefault();
-
-        i += 1;
-        if(i > lis.length - 1) i = 0;
-
-        lis.removeClass('on');
-        $(lis[i]).addClass('on');
-        // $('#box'+(i + 1)).addClass('on');
-
-
-
-
-        // a버튼 누르면 다음 박스 이미지로 전환
-        // $('#visual li').boxes[].addClass('on');
-    });
-
-
-    var isAnimated = true;
-	// var delay = convertSpeed('.wrap');
-	
-	$('.imgBtn>li').on('click',function(){
-
-		if(isAnimated){
-			isAnimated = false;
-            var imgNum = $(this).index();
-            
-
-			// $('.imgBtn>li').removeClass('on');
-			// $('.imgBtn>li').eq(i).addClass('on');
-			$('.inner>li.upper').addClass('lower').removeClass('upper');
-			$('.inner>li').eq(imgNum).addClass('upper');
-
-			setTimeout(function(){
-				$('.inner>li.lower').removeClass('lower');
-				isAnimated = true;
-			},1000);
-		}		
-	});
-
-    
-})
-$(document).ready(function(){
-    console.log('sub community');
-    $("tr.que").on("click", function (e) {
-        e.preventDefault();
-        // console.log(e.target);
-        $(this).next().toggle();
-        $(this).find('i').toggleClass('fa-angle-down').toggleClass('fa-angle-up');
-        
-    });
-})
-$(document).ready(function(){
+$(function(){
     console.log('main intro');
 
-    // $(".myScroll").myScroll({
-    //     btns: "#navi>li",
-    //     speed: 800,
-    //     base: 0,
-    //     active: "on",
-    // });
+    // floating_menu : click
+    var $menu = $('.floating_menu li');
+    var $doc = $('html, body');
+    var $section = $('.scroll');
 
-     // CONTENT1 CLICK BUTTON
+    $menu.on('click', 'a' ,function(e){
+        var $li = $(this).parent();
+        var idx = $li.index();
+        var sectionIndex = $section.eq(idx);
+        var offsetTop = sectionIndex.offset().top;
+
+        $doc.stop().animate({
+            scrollTop:offsetTop
+        },800);
+        return false;
+
+    });
+
+    // floating_menu : scroll
+    $(window).scroll(function(){
+
+        var scltop = $(this).scrollTop();
+
+        $.each($section, function(idx){
+
+            var $target = $section.eq(idx);
+            var targetTop = $target.offset().top;
+
+            if(targetTop <= scltop){
+                $menu.removeClass('on');
+                $menu.eq(idx).addClass('on');
+            }
+            if(!(300 <= scltop)){
+                $menu.removeClass('on');
+            }
+        });
+    });
+
+     // CONTENT1 :  click
      var buttons = $("#content1").find("a");
    
      $(buttons)
@@ -112,7 +86,7 @@ $(document).ready(function(){
              });
          });
 
-           // TABMENU BUTTON
+    // TAB : click
     $("#tab ul li").on("click", function (e) {
         e.preventDefault();
 
@@ -124,7 +98,7 @@ $(document).ready(function(){
        
     });
 
-    // content2 : view more
+    // content2 : click - >더보기
     $('#content2 .border_txt a').on('click', function(e){
         e.preventDefault();
 
@@ -186,50 +160,8 @@ $(document).ready(function(){
             'transform':'rotateX('+mousePos.y*5+'deg) rotateY('+mousePos.x*5+'deg)'
         });
 
-    })
+    });
 
-    // 스크롤시 컨텐츠 마다 .on
-//     $(window).on('scroll', function(){
-//         var scroll = $(this).scrollTop();
-//         var pos0 = $('.myScroll').eq(0).offset().top; //content1
-//         var pos1 = $('.myScroll').eq(1).offset().top; //tab
-//         var pos2 = $('.myScroll').eq(2).offset().top; //content2
-//         var pos3 = $('.myScroll').eq(3).offset().top; //content3
-//         var pos4 = $('.myScroll').eq(4).offset().top; //content4
-//         console.log("scroll:"+scroll);
-//         console.log("pos0:"+pos0);
-//         console.log("pos1:"+pos1);
-//         console.log("pos2:"+pos2);
-//         console.log("pos3:"+pos3);
-//         console.log("pos4:"+pos4);
-
-
-//         if(scroll < 300){
-//             $('header').removeClass('on');
-//             $('#navi').hide();
-//         }else if(scroll >= (pos0 - 400) && scroll < pos1 ){
-//             $('header').addClass('on');
-//             $('#navi').show();
-//             $('#content1').addClass('on');
-//         }else if(scroll >= (pos1 - 200) && scroll < pos2 ){
-//             $('#tab').addClass('on');
-//         }else if(scroll >= (pos2 - 200) && scroll < pos3){
-//             $('#content2').addClass('on');
-//         }else if(scroll >= (pos3 - 200) && scroll < pos4){
-//             $('#content3').addClass('on');
-//         }else if(scroll >= (pos4 - 200) ){
-//             $('#content4').addClass('on');
-//         }
-
-//     });
-    
-//         $('header').removeClass('on');
-//         $('#content1').removeClass('on');
-//         $('#content2').removeClass('on');
-//         $('#content4').removeClass('on');
-//         $('#content3').removeClass('on');
-
-        
 
 });
 (function($){
@@ -314,6 +246,143 @@ $(document).ready(function(){
     }
 
 })(jQuery);
+$(document).ready(function(){
+    
+    var lis = $('#visual li');
+    var i = 0; // 0 <= i < lis.lenght-1;
+    
+    $('a.rightBtn').on('click', function(e){
+        e.preventDefault();
+
+        i += 1;
+        if(i > lis.length - 1) i = 0;
+
+        lis.removeClass('on');
+        $(lis[i]).addClass('on');
+        // $('#box'+(i + 1)).addClass('on');
+
+
+
+
+        // a버튼 누르면 다음 박스 이미지로 전환
+        // $('#visual li').boxes[].addClass('on');
+    });
+
+
+    var isAnimated = true;
+	// var delay = convertSpeed('.wrap');
+	
+	$('.imgBtn>li').on('click',function(){
+
+		if(isAnimated){
+			isAnimated = false;
+            var imgNum = $(this).index();
+            
+
+			// $('.imgBtn>li').removeClass('on');
+			// $('.imgBtn>li').eq(i).addClass('on');
+			$('.inner>li.upper').addClass('lower').removeClass('upper');
+			$('.inner>li').eq(imgNum).addClass('upper');
+
+			setTimeout(function(){
+				$('.inner>li.lower').removeClass('lower');
+				isAnimated = true;
+			},1000);
+		}		
+	});
+
+    
+})
+$(document).ready(function(){
+    console.log('sub community');
+    $("tr.que").on("click", function (e) {
+        e.preventDefault();
+        // console.log(e.target);
+        $(this).next().toggle();
+        $(this).find('i').toggleClass('fa-angle-down').toggleClass('fa-angle-up');
+        
+    });
+})
+$(document).ready(function(){
+
+ 
+    var dataURL = 'https://api.instagram.com/v1/users/self/media/recent';
+    var photoData;
+  
+    var $wrap = $('#insta'); //인스타가 출력될 프레임
+    var count_num = 15;  //출력할 포스트갯수
+    var token = "670958357.1677ed0.89e3ef90b315438b827285d921374a98"; //개인토큰
+    var text_count =10; //자를 글자갯수
+ 
+
+    getData(dataURL);    
+    
+    function getData(url) {
+      $.ajax({
+        url: url,
+        dataType: 'jsonp',
+        data: {
+          access_token: token, 
+          count:count_num
+        }
+      })
+      .success(function(data) {
+        photoData = data;	          
+        var post = photoData.data;       
+  
+        $(post).each(function(i){  
+          console.log(this);
+      
+          var imgUrl = this.images.standard_resolution.url;
+          var imgLink = this.link;
+          var tags = this.tags[0];
+          var caption;
+  
+          if(this.caption){
+            caption = this.caption.text;   
+            var len = caption.length;
+                  
+            if(len>text_count){
+              caption = caption.substr(0,text_count)+"...";  
+            }            
+          }
+          
+        // 수정부분
+          $wrap.append(
+                $('<article class="insta_item '+tags+'">')
+                .append(
+                              $('<div class="inner">')
+                              .append(
+                                $('<div class="pic">').css({'background-image':'url('+imgUrl+')'})
+                              )             
+                              .append(
+                                $('<p>').text(caption)
+                              )   
+                        )
+                            
+          );
+          
+  
+        });
+
+
+        $(".insta_item").css({
+          "background-position":"center",
+          "background-size" : "cover",
+          "background-repeat" : "no-repeat",
+          "background-color" : "rgba(255,255,255,1)"
+        });       
+        
+      })
+      .error(function() {
+            alert("데이터불러오기에 실패했습니다");
+      })
+    }
+
+  
+      
+  });
+  
 $(function(){
     var url_interests = 'https://www.flickr.com/services/rest/?method=flickr.interestingness.getList';
     var url_search = 'https://www.flickr.com/services/rest/?method=flickr.photos.search';
@@ -447,6 +516,7 @@ $(function(){
     }
 
 })
+
 (() => {
 
     var actions = {
@@ -521,87 +591,6 @@ $(function(){
 
 
 })();
-$(document).ready(function(){
-
- 
-    var dataURL = 'https://api.instagram.com/v1/users/self/media/recent';
-    var photoData;
-  
-    var $wrap = $('#insta'); //인스타가 출력될 프레임
-    var count_num = 15;  //출력할 포스트갯수
-    var token = "670958357.1677ed0.89e3ef90b315438b827285d921374a98"; //개인토큰
-    var text_count =10; //자를 글자갯수
- 
-
-    getData(dataURL);    
-    
-    function getData(url) {
-      $.ajax({
-        url: url,
-        dataType: 'jsonp',
-        data: {
-          access_token: token, 
-          count:count_num
-        }
-      })
-      .success(function(data) {
-        photoData = data;	          
-        var post = photoData.data;       
-  
-        $(post).each(function(i){  
-          console.log(this);
-      
-          var imgUrl = this.images.standard_resolution.url;
-          var imgLink = this.link;
-          var tags = this.tags[0];
-          var caption;
-  
-          if(this.caption){
-            caption = this.caption.text;   
-            var len = caption.length;
-                  
-            if(len>text_count){
-              caption = caption.substr(0,text_count)+"...";  
-            }            
-          }
-          
-        // 수정부분
-          $wrap.append(
-                $('<article class="insta_item '+tags+'">')
-                .append(
-                              $('<div class="inner">')
-                              .append(
-                                $('<div class="pic">').css({'background-image':'url('+imgUrl+')'})
-                              )             
-                              .append(
-                                $('<p>').text(caption)
-                              )   
-                        )
-                            
-          );
-          
-  
-        });
-
-
-        $(".insta_item").css({
-          "background-position":"center",
-          "background-size" : "cover",
-          "background-repeat" : "no-repeat",
-          "background-color" : "rgba(255,255,255,1)"
-        });       
-        
-      })
-      .error(function() {
-            alert("데이터불러오기에 실패했습니다");
-      })
-    }
-
-  
-      
-  });
-  
-
 window.onload = function(){
 
     //카카오맵에 표시될 DOM지정
@@ -722,96 +711,6 @@ window.onload = function(){
    
    
 }
-$(function(){
-
-    var $form = $('#join');
-    var $required = $('.required');
-    var $terms = $('input[name=terms]');
-    var $pwd = $('input[type=password]').eq(0);
-    console.log($pwd);
-    var $pwd2 = $('input[type=password]').eq(1);
-    console.log($pwd2);
-    var $reset =  $('input, td, textarea');
-    var isAgreed = true;
-    
-    // 이벤트, 핸들러함수 바인딩
-    $form.on('submit', function(e){
-        e.preventDefault();
-    
-        //수정할때마다 .red 지우기
-        $reset.removeClass('red');
-    
-        var agreed = $terms.is(':checked');
-        var pwd = $pwd.val();
-        var pwd2 = $pwd2.val();
-        var len = $required.length;
-    
-        // 약관동의체크
-        check_terms(agreed);
-        // 필수텍스트요소 반복을 돌면서 체크
-        check_text(len);
-        // 비밀번호 매칭 체크
-        check_pwd(pwd,pwd2);
-        // 위의 4가지 체크결과값이 모두 true이면 회원가입 승인처리
-    
-        /*함수 안쪽에서  var없이 변수를 선언하면 자동으로 전역변수에 등록됨 */
-        if( isAgreed && isPwd && isRequired) confirm();
-    });
-    
-    function confirm(){
-        alert('회원가입이 완료되었습니다.');
-        // 빈칸으로 만들기
-        $required.val('');
-        
-    }
-    
-    
-    function check_pwd(pwd,pwd2){
-        if(pwd !== pwd2){
-            alert('비밀번호를 동일하게 입력해주세요');
-            $pwd.addClass('red');
-            $pwd2.addClass('red');
-            isPwd = false;
-        }else{
-            isPwd = true;
-        }
-    }
-    
-    function check_terms(agreed){
-        if(!agreed){
-            alert('약관을 동의해주세요');
-            $terms.siblings('textarea').addClass('red');
-            isAgreed = false;
-        }else{
-            isAgreed = true;
-        }
-    }
-    
-    function check_text(len){
-        var i=0;
-        $required.each(function(){
-            var data = $(this).val();
-            var txt = $(this).attr('placeholder');
-            console.log(data);
-            console.log(txt);
-            if(!data){
-                alert(txt);
-                $(this).addClass('red');
-            }else{
-                i++;
-                // 값이 들어있으면 실행, 증가되면서 밑으로 실행
-            }
-        })
-        
-        if(i !== len){
-            isRequired = false;
-        }else{
-            isRequired = true;
-        }
-        // i가 4가 되느냐,안되는냐에 따라서 (i 값이 len 값이랑 동일해야)
-    }
-});
-
 $(function(){
     var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
     var key = 'AIzaSyCgyAlSbGZk2B639WPSBJN4KTa6YOM4EhU';
@@ -935,3 +834,92 @@ $(function(){
         $(this).remove();
     })
 })
+$(function(){
+
+    var $form = $('#join');
+    var $required = $('.required');
+    var $terms = $('input[name=terms]');
+    var $pwd = $('input[type=password]').eq(0);
+    console.log($pwd);
+    var $pwd2 = $('input[type=password]').eq(1);
+    console.log($pwd2);
+    var $reset =  $('input, td, textarea');
+    var isAgreed = true;
+    
+    // 이벤트, 핸들러함수 바인딩
+    $form.on('submit', function(e){
+        e.preventDefault();
+    
+        //수정할때마다 .red 지우기
+        $reset.removeClass('red');
+    
+        var agreed = $terms.is(':checked');
+        var pwd = $pwd.val();
+        var pwd2 = $pwd2.val();
+        var len = $required.length;
+    
+        // 약관동의체크
+        check_terms(agreed);
+        // 필수텍스트요소 반복을 돌면서 체크
+        check_text(len);
+        // 비밀번호 매칭 체크
+        check_pwd(pwd,pwd2);
+        // 위의 4가지 체크결과값이 모두 true이면 회원가입 승인처리
+    
+        /*함수 안쪽에서  var없이 변수를 선언하면 자동으로 전역변수에 등록됨 */
+        if( isAgreed && isPwd && isRequired) confirm();
+    });
+    
+    function confirm(){
+        alert('회원가입이 완료되었습니다.');
+        // 빈칸으로 만들기
+        $required.val('');
+        
+    }
+    
+    
+    function check_pwd(pwd,pwd2){
+        if(pwd !== pwd2){
+            alert('비밀번호를 동일하게 입력해주세요');
+            $pwd.addClass('red');
+            $pwd2.addClass('red');
+            isPwd = false;
+        }else{
+            isPwd = true;
+        }
+    }
+    
+    function check_terms(agreed){
+        if(!agreed){
+            alert('약관을 동의해주세요');
+            $terms.siblings('textarea').addClass('red');
+            isAgreed = false;
+        }else{
+            isAgreed = true;
+        }
+    }
+    
+    function check_text(len){
+        var i=0;
+        $required.each(function(){
+            var data = $(this).val();
+            var txt = $(this).attr('placeholder');
+            console.log(data);
+            console.log(txt);
+            if(!data){
+                alert(txt);
+                $(this).addClass('red');
+            }else{
+                i++;
+                // 값이 들어있으면 실행, 증가되면서 밑으로 실행
+            }
+        })
+        
+        if(i !== len){
+            isRequired = false;
+        }else{
+            isRequired = true;
+        }
+        // i가 4가 되느냐,안되는냐에 따라서 (i 값이 len 값이랑 동일해야)
+    }
+});
