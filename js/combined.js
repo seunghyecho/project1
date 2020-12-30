@@ -207,13 +207,15 @@ $(function(){
     });
 
     //content4 : mousemove
-    window.addEventListener('mousemove', function(e){
-        var content4 = $('#content4 .videoText');
+    
+    var $content4 = $('#content4');
+    $content4.on('mousemove', function(e){
+        var content4Elem = $('#content4 .videoText');
         var mousePos = { x: 0, y: 0 };
         mousePos.x = -1 + (e.clientX / window.innerWidth) * 2;
         mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
 
-        content4.css({
+        content4Elem.css({
             'transform':'rotateX('+mousePos.y*5+'deg) rotateY('+mousePos.x*5+'deg)'
         });
 
@@ -436,6 +438,81 @@ $(function(){
     }
 
 })
+
+(() => {
+
+    var actions = {
+        birdFlies(key) {
+                document.querySelector('[data-index="2"] .bird').style.transform = key ? `translateX(${window.innerWidth}px)` : "translateX(-100%)"
+        },
+        birdFlies2(key) {
+            document.querySelector('[data-index="5"] .bird').style.transform = key ? `translate(${window.innerWidth}px, ${.7 * -window.innerHeight}px)` : "translateX(-100%)"
+        }
+    };
+
+    console.log(actions)
+    var stepElems = document.querySelectorAll('.step');
+    var graphicElems = document.querySelectorAll('.graphic-item');
+    var currentItem = graphicElems[0];
+    var ioIndex;
+
+    var io = new IntersectionObserver((entries, observer) => {
+        ioIndex = entries[0].target.dataset.index * 1;
+        console.log(ioIndex)
+    });
+
+    for (var i = 0; i < stepElems.length; i++) {
+
+        io.observe(stepElems[i]);
+
+        stepElems[i].dataset.index = i;
+        graphicElems[i].dataset.index = i;
+    }
+
+    function activate(action) {
+        currentItem.classList.add('visible');
+        if(action){
+            actions[action](true);
+        }
+
+    }
+    function inactivate(action) {
+        currentItem.classList.remove('visible');
+        if(action){
+            actions[action](false);
+        }
+
+    }
+
+    window.addEventListener('scroll', () => {
+        var step;
+        var boundingRect;
+
+        for (var i = ioIndex - 1; i < ioIndex + 2; i++) {
+            step = stepElems[i];
+            if (!step) continue;
+            boundingRect = step.getBoundingClientRect();
+
+
+            if (boundingRect.top > window.innerHeight * 0.1 &&
+                boundingRect.top < window.innerHeight * 0.8) {
+                // console.log(step.dataset.index)
+                inactivate();
+                currentItem = graphicElems[step.dataset.index];
+                activate(currentItem.dataset.action);
+            }
+        }
+    });
+
+    window.addEventListener('load', () => {
+        setTimeout(() => scrollTo(0, 0), 100);
+    })
+
+    activate();
+
+
+
+})();
 $(document).ready(function(){
 
  
@@ -516,81 +593,6 @@ $(document).ready(function(){
       
   });
   
-
-(() => {
-
-    var actions = {
-        birdFlies(key) {
-                document.querySelector('[data-index="2"] .bird').style.transform = key ? `translateX(${window.innerWidth}px)` : "translateX(-100%)"
-        },
-        birdFlies2(key) {
-            document.querySelector('[data-index="5"] .bird').style.transform = key ? `translate(${window.innerWidth}px, ${.7 * -window.innerHeight}px)` : "translateX(-100%)"
-        }
-    };
-
-    console.log(actions)
-    var stepElems = document.querySelectorAll('.step');
-    var graphicElems = document.querySelectorAll('.graphic-item');
-    var currentItem = graphicElems[0];
-    var ioIndex;
-
-    var io = new IntersectionObserver((entries, observer) => {
-        ioIndex = entries[0].target.dataset.index * 1;
-        console.log(ioIndex)
-    });
-
-    for (var i = 0; i < stepElems.length; i++) {
-
-        io.observe(stepElems[i]);
-
-        stepElems[i].dataset.index = i;
-        graphicElems[i].dataset.index = i;
-    }
-
-    function activate(action) {
-        currentItem.classList.add('visible');
-        if(action){
-            actions[action](true);
-        }
-
-    }
-    function inactivate(action) {
-        currentItem.classList.remove('visible');
-        if(action){
-            actions[action](false);
-        }
-
-    }
-
-    window.addEventListener('scroll', () => {
-        var step;
-        var boundingRect;
-
-        for (var i = ioIndex - 1; i < ioIndex + 2; i++) {
-            step = stepElems[i];
-            if (!step) continue;
-            boundingRect = step.getBoundingClientRect();
-
-
-            if (boundingRect.top > window.innerHeight * 0.1 &&
-                boundingRect.top < window.innerHeight * 0.8) {
-                // console.log(step.dataset.index)
-                inactivate();
-                currentItem = graphicElems[step.dataset.index];
-                activate(currentItem.dataset.action);
-            }
-        }
-    });
-
-    window.addEventListener('load', () => {
-        setTimeout(() => scrollTo(0, 0), 100);
-    })
-
-    activate();
-
-
-
-})();
 window.onload = function(){
 
     //카카오맵에 표시될 DOM지정
