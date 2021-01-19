@@ -1,25 +1,25 @@
 {
     "article":[
         {
-            "img":"../img/main/intro/img/photo-1439122955805-cbac26b73f3b.jfif",
+            "img":"/img/main/visual/img/img07.jpg",
             "title":"Lorem ipsum",
             "subtitle":"Lorem ipsum",
             "link":"#"
         },
         {
-            "img":"../img/main/intro/img/photo-1574088287813-7cfac39acb1c.jfif",
+            "img":"/img/main/visual/img/img08.jpg",
             "title":"Lorem ipsum",
             "subtitle":"Lorem ipsum",
             "link":"#"
         },
         {
-            "img":"../img/main/intro/img/photo-1524617787326-96cf73bf83e0.jfif",
+            "img":"/img/main/visual/img/img09.jpg",
             "title":"Lorem ipsum",
             "subtitle":"Lorem ipsum",
             "link":"#"
         },
         {
-            "img":"../img/main/intro/img/photo-1517374096549-0b818e3de484.jfif",
+            "img":"/img/main/visual/img/img10.jpg",
             "title":"Lorem ipsum",
             "subtitle":"Lorem ipsum",
             "link":"#"

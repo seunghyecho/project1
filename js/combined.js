@@ -2,53 +2,6 @@ $(document).ready(function(){
     console.log('footer');
 })
 $(document).ready(function(){
-    
-    var lis = $('#visual li');
-    var i = 0; // 0 <= i < lis.lenght-1;
-    
-    $('a.rightBtn').on('click', function(e){
-        e.preventDefault();
-
-        i += 1;
-        if(i > lis.length - 1) i = 0;
-
-        lis.removeClass('on');
-        $(lis[i]).addClass('on');
-        // $('#box'+(i + 1)).addClass('on');
-
-
-
-
-        // a버튼 누르면 다음 박스 이미지로 전환
-        // $('#visual li').boxes[].addClass('on');
-    });
-
-
-    var isAnimated = true;
-	// var delay = convertSpeed('.wrap');
-	
-	$('.imgBtn>li').on('click',function(){
-
-		if(isAnimated){
-			isAnimated = false;
-            var imgNum = $(this).index();
-            
-
-			// $('.imgBtn>li').removeClass('on');
-			// $('.imgBtn>li').eq(i).addClass('on');
-			$('.inner>li.upper').addClass('lower').removeClass('upper');
-			$('.inner>li').eq(imgNum).addClass('upper');
-
-			setTimeout(function(){
-				$('.inner>li.lower').removeClass('lower');
-				isAnimated = true;
-			},1000);
-		}		
-	});
-
-    
-})
-$(document).ready(function(){
     console.log('header');
 
     $('.inner> .logo').addClass('show');
@@ -295,6 +248,53 @@ $(function(){
     }
 
 })(jQuery);
+$(document).ready(function(){
+    
+    var lis = $('#visual li');
+    var i = 0; // 0 <= i < lis.lenght-1;
+    
+    $('a.rightBtn').on('click', function(e){
+        e.preventDefault();
+
+        i += 1;
+        if(i > lis.length - 1) i = 0;
+
+        lis.removeClass('on');
+        $(lis[i]).addClass('on');
+        // $('#box'+(i + 1)).addClass('on');
+
+
+
+
+        // a버튼 누르면 다음 박스 이미지로 전환
+        // $('#visual li').boxes[].addClass('on');
+    });
+
+
+    var isAnimated = true;
+	// var delay = convertSpeed('.wrap');
+	
+	$('.imgBtn>li').on('click',function(){
+
+		if(isAnimated){
+			isAnimated = false;
+            var imgNum = $(this).index();
+            
+
+			// $('.imgBtn>li').removeClass('on');
+			// $('.imgBtn>li').eq(i).addClass('on');
+			$('.inner>li.upper').addClass('lower').removeClass('upper');
+			$('.inner>li').eq(imgNum).addClass('upper');
+
+			setTimeout(function(){
+				$('.inner>li.lower').removeClass('lower');
+				isAnimated = true;
+			},1000);
+		}		
+	});
+
+    
+})
 $(document).ready(function(){
     console.log('sub community');
     $("tr.que").on("click", function (e) {
@@ -593,96 +593,6 @@ $(document).ready(function(){
 
 
 })();
-$(function(){
-
-    var $form = $('#join');
-    var $required = $('.required');
-    var $terms = $('input[name=terms]');
-    var $pwd = $('input[type=password]').eq(0);
-    console.log($pwd);
-    var $pwd2 = $('input[type=password]').eq(1);
-    console.log($pwd2);
-    var $reset =  $('input, td, textarea');
-    var isAgreed = true;
-    
-    // 이벤트, 핸들러함수 바인딩
-    $form.on('submit', function(e){
-        e.preventDefault();
-    
-        //수정할때마다 .red 지우기
-        $reset.removeClass('red');
-    
-        var agreed = $terms.is(':checked');
-        var pwd = $pwd.val();
-        var pwd2 = $pwd2.val();
-        var len = $required.length;
-    
-        // 약관동의체크
-        check_terms(agreed);
-        // 필수텍스트요소 반복을 돌면서 체크
-        check_text(len);
-        // 비밀번호 매칭 체크
-        check_pwd(pwd,pwd2);
-        // 위의 4가지 체크결과값이 모두 true이면 회원가입 승인처리
-    
-        /*함수 안쪽에서  var없이 변수를 선언하면 자동으로 전역변수에 등록됨 */
-        if( isAgreed && isPwd && isRequired) confirm();
-    });
-    
-    function confirm(){
-        alert('회원가입이 완료되었습니다.');
-        // 빈칸으로 만들기
-        $required.val('');
-        
-    }
-    
-    
-    function check_pwd(pwd,pwd2){
-        if(pwd !== pwd2){
-            alert('비밀번호를 동일하게 입력해주세요');
-            $pwd.addClass('red');
-            $pwd2.addClass('red');
-            isPwd = false;
-        }else{
-            isPwd = true;
-        }
-    }
-    
-    function check_terms(agreed){
-        if(!agreed){
-            alert('약관을 동의해주세요');
-            $terms.siblings('textarea').addClass('red');
-            isAgreed = false;
-        }else{
-            isAgreed = true;
-        }
-    }
-    
-    function check_text(len){
-        var i=0;
-        $required.each(function(){
-            var data = $(this).val();
-            var txt = $(this).attr('placeholder');
-            console.log(data);
-            console.log(txt);
-            if(!data){
-                alert(txt);
-                $(this).addClass('red');
-            }else{
-                i++;
-                // 값이 들어있으면 실행, 증가되면서 밑으로 실행
-            }
-        })
-        
-        if(i !== len){
-            isRequired = false;
-        }else{
-            isRequired = true;
-        }
-        // i가 4가 되느냐,안되는냐에 따라서 (i 값이 len 값이랑 동일해야)
-    }
-});
-
 window.onload = function(){
 
     //카카오맵에 표시될 DOM지정
@@ -803,6 +713,96 @@ window.onload = function(){
    
    
 }
+$(function(){
+
+    var $form = $('#join');
+    var $required = $('.required');
+    var $terms = $('input[name=terms]');
+    var $pwd = $('input[type=password]').eq(0);
+    console.log($pwd);
+    var $pwd2 = $('input[type=password]').eq(1);
+    console.log($pwd2);
+    var $reset =  $('input, td, textarea');
+    var isAgreed = true;
+    
+    // 이벤트, 핸들러함수 바인딩
+    $form.on('submit', function(e){
+        e.preventDefault();
+    
+        //수정할때마다 .red 지우기
+        $reset.removeClass('red');
+    
+        var agreed = $terms.is(':checked');
+        var pwd = $pwd.val();
+        var pwd2 = $pwd2.val();
+        var len = $required.length;
+    
+        // 약관동의체크
+        check_terms(agreed);
+        // 필수텍스트요소 반복을 돌면서 체크
+        check_text(len);
+        // 비밀번호 매칭 체크
+        check_pwd(pwd,pwd2);
+        // 위의 4가지 체크결과값이 모두 true이면 회원가입 승인처리
+    
+        /*함수 안쪽에서  var없이 변수를 선언하면 자동으로 전역변수에 등록됨 */
+        if( isAgreed && isPwd && isRequired) confirm();
+    });
+    
+    function confirm(){
+        alert('회원가입이 완료되었습니다.');
+        // 빈칸으로 만들기
+        $required.val('');
+        
+    }
+    
+    
+    function check_pwd(pwd,pwd2){
+        if(pwd !== pwd2){
+            alert('비밀번호를 동일하게 입력해주세요');
+            $pwd.addClass('red');
+            $pwd2.addClass('red');
+            isPwd = false;
+        }else{
+            isPwd = true;
+        }
+    }
+    
+    function check_terms(agreed){
+        if(!agreed){
+            alert('약관을 동의해주세요');
+            $terms.siblings('textarea').addClass('red');
+            isAgreed = false;
+        }else{
+            isAgreed = true;
+        }
+    }
+    
+    function check_text(len){
+        var i=0;
+        $required.each(function(){
+            var data = $(this).val();
+            var txt = $(this).attr('placeholder');
+            console.log(data);
+            console.log(txt);
+            if(!data){
+                alert(txt);
+                $(this).addClass('red');
+            }else{
+                i++;
+                // 값이 들어있으면 실행, 증가되면서 밑으로 실행
+            }
+        })
+        
+        if(i !== len){
+            isRequired = false;
+        }else{
+            isRequired = true;
+        }
+        // i가 4가 되느냐,안되는냐에 따라서 (i 값이 len 값이랑 동일해야)
+    }
+});
+
 $(function(){
     var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
     var key = 'AIzaSyCgyAlSbGZk2B639WPSBJN4KTa6YOM4EhU';
