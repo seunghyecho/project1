@@ -2,31 +2,6 @@ $(document).ready(function(){
     console.log('footer');
 })
 $(document).ready(function(){
-    console.log('header');
-
-    $('.inner> .logo').addClass('show');
-    $('.gnb li').addClass('show');
-
-    
-     // MENU BUTTON
-     $(".menuBtn").on("click", function () {
-        if ($(this).find("i").hasClass("fa-bars")) {
-            //모바일메뉴 열기
-            $(".menuBtn>i").attr("class", "fas fa-times");
-            $("#gnb_mo").addClass("on");
-            $('body, html').css({'overflow':'hidden'});
-
-        } else {
-            //모바일메뉴 닫기
-            $(".menuBtn>i").attr("class", "fas fa-bars");
-            $("#gnb_mo").removeClass("on");
-            $('body, html').css({'overflow':'auto'});
-
-        }
-    });
-
-})
-$(document).ready(function(){
     
     var lis = $('#visual li');
     var i = 0; // 0 <= i < lis.lenght-1;
@@ -74,14 +49,29 @@ $(document).ready(function(){
     
 })
 $(document).ready(function(){
-    console.log('sub community');
-    $("tr.que").on("click", function (e) {
-        e.preventDefault();
-        // console.log(e.target);
-        $(this).next().toggle();
-        $(this).find('i').toggleClass('fa-angle-down').toggleClass('fa-angle-up');
-        
+    console.log('header');
+
+    $('.inner> .logo').addClass('show');
+    $('.gnb li').addClass('show');
+
+    
+     // MENU BUTTON
+     $(".menuBtn").on("click", function () {
+        if ($(this).find("i").hasClass("fa-bars")) {
+            //모바일메뉴 열기
+            $(".menuBtn>i").attr("class", "fas fa-times");
+            $("#gnb_mo").addClass("on");
+            $('body, html').css({'overflow':'hidden'});
+
+        } else {
+            //모바일메뉴 닫기
+            $(".menuBtn>i").attr("class", "fas fa-bars");
+            $("#gnb_mo").removeClass("on");
+            $('body, html').css({'overflow':'auto'});
+
+        }
     });
+
 })
 $(function(){
     console.log('main intro');
@@ -305,6 +295,16 @@ $(function(){
     }
 
 })(jQuery);
+$(document).ready(function(){
+    console.log('sub community');
+    $("tr.que").on("click", function (e) {
+        e.preventDefault();
+        // console.log(e.target);
+        $(this).next().toggle();
+        $(this).find('i').toggleClass('fa-angle-down').toggleClass('fa-angle-up');
+        
+    });
+})
 $(function(){
     var url_interests = 'https://www.flickr.com/services/rest/?method=flickr.interestingness.getList';
     var url_search = 'https://www.flickr.com/services/rest/?method=flickr.photos.search';
@@ -438,81 +438,6 @@ $(function(){
     }
 
 })
-
-(() => {
-
-    var actions = {
-        birdFlies(key) {
-                document.querySelector('[data-index="2"] .bird').style.transform = key ? `translateX(${window.innerWidth}px)` : "translateX(-100%)"
-        },
-        birdFlies2(key) {
-            document.querySelector('[data-index="5"] .bird').style.transform = key ? `translate(${window.innerWidth}px, ${.7 * -window.innerHeight}px)` : "translateX(-100%)"
-        }
-    };
-
-    console.log(actions)
-    var stepElems = document.querySelectorAll('.step');
-    var graphicElems = document.querySelectorAll('.graphic-item');
-    var currentItem = graphicElems[0];
-    var ioIndex;
-
-    var io = new IntersectionObserver((entries, observer) => {
-        ioIndex = entries[0].target.dataset.index * 1;
-        console.log(ioIndex)
-    });
-
-    for (var i = 0; i < stepElems.length; i++) {
-
-        io.observe(stepElems[i]);
-
-        stepElems[i].dataset.index = i;
-        graphicElems[i].dataset.index = i;
-    }
-
-    function activate(action) {
-        currentItem.classList.add('visible');
-        if(action){
-            actions[action](true);
-        }
-
-    }
-    function inactivate(action) {
-        currentItem.classList.remove('visible');
-        if(action){
-            actions[action](false);
-        }
-
-    }
-
-    window.addEventListener('scroll', () => {
-        var step;
-        var boundingRect;
-
-        for (var i = ioIndex - 1; i < ioIndex + 2; i++) {
-            step = stepElems[i];
-            if (!step) continue;
-            boundingRect = step.getBoundingClientRect();
-
-
-            if (boundingRect.top > window.innerHeight * 0.1 &&
-                boundingRect.top < window.innerHeight * 0.8) {
-                // console.log(step.dataset.index)
-                inactivate();
-                currentItem = graphicElems[step.dataset.index];
-                activate(currentItem.dataset.action);
-            }
-        }
-    });
-
-    window.addEventListener('load', () => {
-        setTimeout(() => scrollTo(0, 0), 100);
-    })
-
-    activate();
-
-
-
-})();
 $(document).ready(function(){
 
  
@@ -593,6 +518,171 @@ $(document).ready(function(){
       
   });
   
+
+(() => {
+
+    var actions = {
+        birdFlies(key) {
+                document.querySelector('[data-index="2"] .bird').style.transform = key ? `translateX(${window.innerWidth}px)` : "translateX(-100%)"
+        },
+        birdFlies2(key) {
+            document.querySelector('[data-index="5"] .bird').style.transform = key ? `translate(${window.innerWidth}px, ${.7 * -window.innerHeight}px)` : "translateX(-100%)"
+        }
+    };
+
+    console.log(actions)
+    var stepElems = document.querySelectorAll('.step');
+    var graphicElems = document.querySelectorAll('.graphic-item');
+    var currentItem = graphicElems[0];
+    var ioIndex;
+
+    var io = new IntersectionObserver((entries, observer) => {
+        ioIndex = entries[0].target.dataset.index * 1;
+        console.log(ioIndex)
+    });
+
+    for (var i = 0; i < stepElems.length; i++) {
+
+        io.observe(stepElems[i]);
+
+        stepElems[i].dataset.index = i;
+        graphicElems[i].dataset.index = i;
+    }
+
+    function activate(action) {
+        currentItem.classList.add('visible');
+        if(action){
+            actions[action](true);
+        }
+
+    }
+    function inactivate(action) {
+        currentItem.classList.remove('visible');
+        if(action){
+            actions[action](false);
+        }
+
+    }
+
+    window.addEventListener('scroll', () => {
+        var step;
+        var boundingRect;
+
+        for (var i = ioIndex - 1; i < ioIndex + 2; i++) {
+            step = stepElems[i];
+            if (!step) continue;
+            boundingRect = step.getBoundingClientRect();
+
+
+            if (boundingRect.top > window.innerHeight * 0.1 &&
+                boundingRect.top < window.innerHeight * 0.8) {
+                // console.log(step.dataset.index)
+                inactivate();
+                currentItem = graphicElems[step.dataset.index];
+                activate(currentItem.dataset.action);
+            }
+        }
+    });
+
+    window.addEventListener('load', () => {
+        setTimeout(() => scrollTo(0, 0), 100);
+    })
+
+    activate();
+
+
+
+})();
+$(function(){
+
+    var $form = $('#join');
+    var $required = $('.required');
+    var $terms = $('input[name=terms]');
+    var $pwd = $('input[type=password]').eq(0);
+    console.log($pwd);
+    var $pwd2 = $('input[type=password]').eq(1);
+    console.log($pwd2);
+    var $reset =  $('input, td, textarea');
+    var isAgreed = true;
+    
+    // 이벤트, 핸들러함수 바인딩
+    $form.on('submit', function(e){
+        e.preventDefault();
+    
+        //수정할때마다 .red 지우기
+        $reset.removeClass('red');
+    
+        var agreed = $terms.is(':checked');
+        var pwd = $pwd.val();
+        var pwd2 = $pwd2.val();
+        var len = $required.length;
+    
+        // 약관동의체크
+        check_terms(agreed);
+        // 필수텍스트요소 반복을 돌면서 체크
+        check_text(len);
+        // 비밀번호 매칭 체크
+        check_pwd(pwd,pwd2);
+        // 위의 4가지 체크결과값이 모두 true이면 회원가입 승인처리
+    
+        /*함수 안쪽에서  var없이 변수를 선언하면 자동으로 전역변수에 등록됨 */
+        if( isAgreed && isPwd && isRequired) confirm();
+    });
+    
+    function confirm(){
+        alert('회원가입이 완료되었습니다.');
+        // 빈칸으로 만들기
+        $required.val('');
+        
+    }
+    
+    
+    function check_pwd(pwd,pwd2){
+        if(pwd !== pwd2){
+            alert('비밀번호를 동일하게 입력해주세요');
+            $pwd.addClass('red');
+            $pwd2.addClass('red');
+            isPwd = false;
+        }else{
+            isPwd = true;
+        }
+    }
+    
+    function check_terms(agreed){
+        if(!agreed){
+            alert('약관을 동의해주세요');
+            $terms.siblings('textarea').addClass('red');
+            isAgreed = false;
+        }else{
+            isAgreed = true;
+        }
+    }
+    
+    function check_text(len){
+        var i=0;
+        $required.each(function(){
+            var data = $(this).val();
+            var txt = $(this).attr('placeholder');
+            console.log(data);
+            console.log(txt);
+            if(!data){
+                alert(txt);
+                $(this).addClass('red');
+            }else{
+                i++;
+                // 값이 들어있으면 실행, 증가되면서 밑으로 실행
+            }
+        })
+        
+        if(i !== len){
+            isRequired = false;
+        }else{
+            isRequired = true;
+        }
+        // i가 4가 되느냐,안되는냐에 따라서 (i 값이 len 값이랑 동일해야)
+    }
+});
+
 window.onload = function(){
 
     //카카오맵에 표시될 DOM지정
@@ -713,96 +803,6 @@ window.onload = function(){
    
    
 }
-$(function(){
-
-    var $form = $('#join');
-    var $required = $('.required');
-    var $terms = $('input[name=terms]');
-    var $pwd = $('input[type=password]').eq(0);
-    console.log($pwd);
-    var $pwd2 = $('input[type=password]').eq(1);
-    console.log($pwd2);
-    var $reset =  $('input, td, textarea');
-    var isAgreed = true;
-    
-    // 이벤트, 핸들러함수 바인딩
-    $form.on('submit', function(e){
-        e.preventDefault();
-    
-        //수정할때마다 .red 지우기
-        $reset.removeClass('red');
-    
-        var agreed = $terms.is(':checked');
-        var pwd = $pwd.val();
-        var pwd2 = $pwd2.val();
-        var len = $required.length;
-    
-        // 약관동의체크
-        check_terms(agreed);
-        // 필수텍스트요소 반복을 돌면서 체크
-        check_text(len);
-        // 비밀번호 매칭 체크
-        check_pwd(pwd,pwd2);
-        // 위의 4가지 체크결과값이 모두 true이면 회원가입 승인처리
-    
-        /*함수 안쪽에서  var없이 변수를 선언하면 자동으로 전역변수에 등록됨 */
-        if( isAgreed && isPwd && isRequired) confirm();
-    });
-    
-    function confirm(){
-        alert('회원가입이 완료되었습니다.');
-        // 빈칸으로 만들기
-        $required.val('');
-        
-    }
-    
-    
-    function check_pwd(pwd,pwd2){
-        if(pwd !== pwd2){
-            alert('비밀번호를 동일하게 입력해주세요');
-            $pwd.addClass('red');
-            $pwd2.addClass('red');
-            isPwd = false;
-        }else{
-            isPwd = true;
-        }
-    }
-    
-    function check_terms(agreed){
-        if(!agreed){
-            alert('약관을 동의해주세요');
-            $terms.siblings('textarea').addClass('red');
-            isAgreed = false;
-        }else{
-            isAgreed = true;
-        }
-    }
-    
-    function check_text(len){
-        var i=0;
-        $required.each(function(){
-            var data = $(this).val();
-            var txt = $(this).attr('placeholder');
-            console.log(data);
-            console.log(txt);
-            if(!data){
-                alert(txt);
-                $(this).addClass('red');
-            }else{
-                i++;
-                // 값이 들어있으면 실행, 증가되면서 밑으로 실행
-            }
-        })
-        
-        if(i !== len){
-            isRequired = false;
-        }else{
-            isRequired = true;
-        }
-        // i가 4가 되느냐,안되는냐에 따라서 (i 값이 len 값이랑 동일해야)
-    }
-});
-
 $(function(){
     var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
     var key = 'AIzaSyCgyAlSbGZk2B639WPSBJN4KTa6YOM4EhU';
