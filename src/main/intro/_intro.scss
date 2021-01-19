@@ -298,7 +298,7 @@
                                 opacity: 1;
     
                                 > p{
-                                    transform: translateX(-37px);
+                                    transform: translateX(20%);
                                 }
                                 
                             }
@@ -320,8 +320,28 @@
                                 overflow: hidden;
                                 transition: 0.5s;
                                 transform: translateX(540px);
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                width: 50%;
+                                height: -webkit-fill-available;
 
                                 > img{ width: 100%; }
+
+                                &:nth-of-type(1){
+                                    background-image: url(../img/main/intro/img/apple_phone.png);
+                                }
+                                &:nth-of-type(2){
+                                    background-image: url(../img/main/intro/img/apple_case.png);
+                                }
+                                &:nth-of-type(3){
+                                    background-image: url(../img/main/intro/img/apple_watch.png);
+                                }
+                                &:nth-of-type(4){
+                                    background-image: url(../img/main/intro/img/apple_phone.png);
+                                }
+                                &:nth-of-type(5){
+                                    background-image: url(../img/main/intro/img/apple_case.png);
+                                }
                             }
 
                             .txt {
@@ -453,6 +473,25 @@
                     background-color: antiquewhite;
                     // transform: translateY(80px);      
 
+                    &:nth-of-type(1) a{
+                        background-image: url(../img/main/visual/img/img01.jpg);
+                    }
+                    &:nth-of-type(2) a{
+                        background-image: url(../img/main/visual/img/img02.jpg);
+                    }
+                    &:nth-of-type(3) a{
+                        background-image: url(../img/main/visual/img/img03.jpg);
+                    }
+                    &:nth-of-type(4) a{
+                        background-image: url(../img/main/visual/img/img04.png);
+                    }
+                    &:nth-of-type(5) a{
+                        background-image: url(../img/main/visual/img/img05.jpg);
+                    }
+                    &:nth-of-type(6) a{
+                        background-image: url(../img/main/visual/img/img06.png);
+                    }
+
                     &:nth-of-type(3n){
                         margin-right: 0;
                     }
@@ -469,6 +508,10 @@
                         display: block;
                         width: 100%;
                         height: 100%;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+
+                        
 
                         img{
                             width: 100%;
@@ -798,7 +841,7 @@
                         > div.tab{
 
                             > p{
-                                right: -5% ;
+                                // right: -5% ;
                             }
 
                             h2{
